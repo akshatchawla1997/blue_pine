@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="light scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blue Pine | Commercial Real Estate Consulting</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;600;700&amp;family=Hanken+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#cca65f",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#001945",
+                    "on-tertiary-fixed-variant": "#5d4201",
+                    "inverse-on-surface": "#eef1f3",
+                    "on-secondary-fixed": "#111c2c",
+                    "on-background": "#181c1e",
+                    "inverse-primary": "#b0c6ff",
+                    "secondary-fixed-dim": "#bcc7dd",
+                    "tertiary-container": "#553c00",
+                    "on-surface-variant": "#434652",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2d3133",
+                    "surface-tint": "#325baf",
+                    "secondary-fixed": "#d8e3fa",
+                    "tertiary": "#392700",
+                    "primary-container": "#003b8e",
+                    "primary": "#002662",
+                    "secondary-container": "#d5e0f7",
+                    "surface-container-high": "#e5e9eb",
+                    "on-tertiary-fixed": "#261900",
+                    "on-primary-fixed-variant": "#104295",
+                    "surface": "#f7fafc",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c3c6d3",
+                    "on-secondary-fixed-variant": "#3c475a",
+                    "surface-container-low": "#f1f4f6",
+                    "tertiary-fixed": "#ffdea5",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "outline": "#747783",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#d7dadc",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#d9e2ff",
+                    "on-primary-container": "#86aaff",
+                    "surface-container-highest": "#e0e3e5",
+                    "background": "#f7fafc",
+                    "on-surface": "#181c1e",
+                    "on-secondary-container": "#586377",
+                    "surface-container": "#ebeef0",
+                    "secondary": "#545f72",
+                    "tertiary-fixed-dim": "#e9c176",
+                    "surface-bright": "#f7fafc",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "80px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px",
+                    "section-padding-lg": "120px",
+                    "section-padding-sm": "64px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Hanken Grotesk"],
+                    "headline-lg": ["Libre Caslon Text"],
+                    "headline-lg-mobile": ["Libre Caslon Text"],
+                    "label-md": ["Hanken Grotesk"],
+                    "headline-md": ["Libre Caslon Text"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-xl": ["Libre Caslon Text"],
+                    "headline-sm": ["Libre Caslon Text"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-xl": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #f7fafc;
+            color: #181c1e;
+        }
+        .hero-overlay {
+            background: linear-gradient(rgba(0, 38, 98, 0.4), rgba(0, 38, 98, 0.6));
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant">
+<nav class="flex justify-between items-center w-full px-margin-desktop h-20 max-w-[1200px] mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Blue Pine</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 font-bold" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#about">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#services">Our Services</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden lg:block font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Advisor</button>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95">Consulting</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen min-h-[800px] flex items-center justify-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A grand, ultra-modern glass skyscraper reflecting a clear blue sky during the golden hour. The building's architectural sharp lines and steel framework symbolize stability and high-end real estate. The atmosphere is professional and prestigious, bathed in soft, warm sunlight that highlights the texture of the facade. The overall aesthetic is corporate, minimalist, and expensive, reflecting the elite nature of Blue Pine Consulting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6F7fDfrmVeFfgZwzxSXVFKRzGBesr-yiGldAxAyD7RNZox3TcOKkL2WDpDm7kzM25oNrJPIiyfbWCAXbB_NM-anREqL1oXcqhe8qHybO3cc-EJuT7WD9duCKVp5G7Y9qfp6xh8qRVND7QE4GzpkCdc49nkk7h5VPLPvhdhPApoiH2IUeU0pCsUh2J0dKPwOiLH70AQSxTsXukFj3zDrwBJADK9_ZAt8mXFYfIyV9Rjszp3ttAZroiFxblRjz1COWW7rvV-3DYYVk"/>
+<div class="absolute inset-0 hero-overlay"></div>
+</div>
+<div class="relative z-10 w-full max-w-[1200px] px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="text-white space-y-6">
+<h1 class="font-headline-xl text-headline-xl text-white">Precision in Commercial Real Estate.</h1>
+<p class="font-body-lg text-body-lg text-white/90 max-w-lg">
+                        Navigating complex markets with analytical rigor and strategic foresight. We provide the intelligence required for high-stakes decisions.
+                    </p>
+</div>
+<!-- Lead Gen Form -->
+<div class="bg-surface-container-lowest p-10 rounded-xl border border-outline-variant shadow-lg max-w-md ml-auto">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-8">Secure Your Strategy</h2>
+<form action="#" class="space-y-6">
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Name</label>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface" placeholder="Your full name" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Contact Number</label>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Email ID</label>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface" placeholder="corporate@domain.com" type="email"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Requirement</label>
+<select class="w-full px-4 py-3 bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface appearance-none">
+<option>Market Analysis</option>
+<option>Portfolio Management</option>
+<option>Corporate Leasing</option>
+<option>Advisory Services</option>
+</select>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 font-label-md text-label-md rounded uppercase tracking-widest hover:bg-primary-container transition-all mt-4" type="submit">Submit Inquiry</button>
+</form>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-padding-lg bg-surface" id="about">
+<div class="max-w-[1200px] mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div>
+<span class="font-label-md text-label-md text-tertiary-fixed-dim uppercase tracking-widest block mb-4">Established Expertise</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Architects of Capital Value</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+                        Blue Pine Consulting is a specialized advisory firm dedicated to the strategic optimization of commercial real estate assets. We operate at the intersection of data-driven analysis and market intuition.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant/80">
+                        Our team of seasoned advisors provides a sophisticated suite of services designed for institutional investors and high-net-worth individuals who require more than just brokerage—they require a partner in long-term value creation.
+                    </p>
+</div>
+<div class="relative">
+<div class="aspect-[4/5] bg-surface-container-high rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A group of diverse, professional consultants in tailored navy and charcoal suits engaged in a serious discussion around a sleek, polished mahogany boardroom table. The background is a blurred cityscape visible through floor-to-ceiling windows. The lighting is cold, clean, and bright, emphasizing a corporate environment of intelligence and focus. The shot is an architectural, editorial composition that feels authoritative and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaOSi1lunOMi1X33vCoI5sxWffKzKG74rL3M2ZOt2Zyg0nspdefQzQUrIAVq15SSTZpYkP2B2ZUQYADzddcUQu0VdHD4QXmgbJNnT-LwubXcq4u_kxgqQTnJCC2w6IlisIhB0S3D0wD9_tfh-WuRJ_3Bdg5VRB2FGJK8sg-XyyfbwNZ9JWwMYSDjfKXM3SV6X2nEOsChS0kCPBdsTv-RFeXtkc2m6ik1MowW0EHVh2mPPMgRqfj_fvzAhv6S6a55upbxQfvJIGZgo"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-primary p-8 text-on-primary hidden lg:block">
+<div class="font-headline-md text-headline-md">25+</div>
+<div class="font-label-md text-label-md opacity-80 uppercase">Years Experience</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-section-padding-lg bg-white" id="services">
+<div class="max-w-[1200px] mx-auto px-margin-desktop">
+<div class="text-center mb-section-padding-sm">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Core Advisory Services</h2>
+<div class="h-1 w-20 bg-tertiary-fixed-dim mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-l border-outline-variant">
+<!-- Service 1 -->
+<div class="p-12 border-r border-b border-outline-variant hover:bg-surface transition-all group">
+<div class="text-primary mb-6 group-hover:scale-110 transition-transform origin-left">
+<span class="material-symbols-outlined text-4xl" data-icon="analytics">analytics</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Market Analysis</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            Comprehensive quantitative assessments of market trends, feasibility studies, and demographic shifts to de-risk investment entries.
+                        </p>
+<a class="inline-flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container hover:text-primary transition-colors" href="#">
+                            VIEW SERVICE <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Service 2 -->
+<div class="p-12 border-r border-b border-outline-variant hover:bg-surface transition-all group">
+<div class="text-primary mb-6 group-hover:scale-110 transition-transform origin-left">
+<span class="material-symbols-outlined text-4xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Portfolio Management</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            Strategic oversight and active management of asset performance to ensure long-term appreciation and consistent yield optimization.
+                        </p>
+<a class="inline-flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container hover:text-primary transition-colors" href="#">
+                            VIEW SERVICE <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Service 3 -->
+<div class="p-12 border-r border-b border-outline-variant hover:bg-surface transition-all group">
+<div class="text-primary mb-6 group-hover:scale-110 transition-transform origin-left">
+<span class="material-symbols-outlined text-4xl" data-icon="handshake">handshake</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Corporate Leasing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            Expert negotiation and representation for high-profile tenants and landlords, securing terms that align with corporate objectives.
+                        </p>
+<a class="inline-flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container hover:text-primary transition-colors" href="#">
+                            VIEW SERVICE <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-padding-lg bg-surface" id="contact">
+<div class="max-w-[1200px] mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-24">
+<div class="space-y-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Connect with our Advisors</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">We are available for confidential consultations at our global headquarters or via private digital briefing.</p>
+</div>
+<div class="space-y-8">
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-on-primary rounded">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary uppercase mb-1">Global HQ</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">One Blue Pine Plaza, 54th Floor<br/>Financial District, New York, NY 10004</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-on-primary rounded">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary uppercase mb-1">Direct Line</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">+1 (212) 555-0900</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-on-primary rounded">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary uppercase mb-1">Inquiries</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">advisory@bluepine.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container h-[500px] relative rounded-lg overflow-hidden border border-outline-variant grayscale opacity-80 hover:grayscale-0 transition-all duration-700">
+<img class="w-full h-full object-cover" data-alt="A sophisticated, high-contrast black and white satellite-style map showing the dense urban grid of Lower Manhattan's financial district. The image emphasizes the geometry and scale of the metropolitan real estate market. The lighting is crisp, and the composition focuses on the architectural density, symbolizing the analytical precision of Blue Pine's consulting approach. It serves as a visual placeholder for a map in a high-end corporate context." data-location="New York" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBegsn5T0gYBuBFvpKx7KCMSr5EgIykoP1BJc9wUlZt7fGMsxQSfO8Zpo_ymoJLpQH8HJpeXNDJ5BUj_23AhZ60mea8HpFCy2R_4u8ACJe2up_3gnGGbQXa7k81FhTMZ-UjfW7pHr3Rm6dFo5Awn03uXBVivawG0d69Eq4pt_OQfSXZOBi6XsxJESckIA4EFzkbcz-4OjgIQDvJQynbS0yaOe89VwCBmQ8W5bGwhq42HwtJWYB4w3pKSvmFnuhZtHSp-T7jEsEhGMM"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-primary text-on-primary px-6 py-3 rounded shadow-2xl flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-md text-label-md">Blue Pine HQ</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-on-background dark:bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-padding-sm max-w-[1200px] mx-auto">
+<div class="space-y-6">
+<div class="font-headline-md text-headline-md text-surface dark:text-on-background">Blue Pine</div>
+<p class="font-body-md text-body-md text-surface-variant dark:text-on-surface-variant opacity-80">
+                    Institutional-grade consulting for the global commercial landscape.
+                </p>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-surface uppercase tracking-widest">Navigation</h4>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-surface-variant hover:text-tertiary-fixed transition-colors" href="#">Home</a>
+<a class="font-body-md text-body-md text-surface-variant hover:text-tertiary-fixed transition-colors" href="#about">About</a>
+<a class="font-body-md text-body-md text-surface-variant hover:text-tertiary-fixed transition-colors" href="#services">Our Services</a>
+<a class="font-body-md text-body-md text-surface-variant hover:text-tertiary-fixed transition-colors" href="#contact">Contact</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-surface uppercase tracking-widest">Advisory</h4>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-surface-variant hover:text-tertiary-fixed transition-colors" href="#">Consulting</a>
+<a class="font-body-md text-body-md text-surface-variant hover:text-tertiary-fixed transition-colors" href="#">Advisor</a>
+<a class="font-body-md text-body-md text-surface-variant hover:text-tertiary-fixed transition-colors" href="#">Market Reports</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-surface uppercase tracking-widest">Legal</h4>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-surface-variant hover:text-tertiary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-surface-variant hover:text-tertiary-fixed transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+<div class="border-t border-surface-variant/10 max-w-[1200px] mx-auto px-margin-desktop py-8">
+<p class="font-body-md text-body-md text-surface-variant/60 text-center">
+                © 2024 Blue Pine Real Estate. All rights reserved.
+            </p>
+</div>
+</footer>
+</body></html>

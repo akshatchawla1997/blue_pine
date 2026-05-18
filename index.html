@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html class="light scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#cca65f",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#001945",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "inverse-on-surface": "#eef1f3",
+                        "on-secondary-fixed": "#111c2c",
+                        "on-background": "#181c1e",
+                        "inverse-primary": "#b0c6ff",
+                        "secondary-fixed-dim": "#bcc7dd",
+                        "tertiary-container": "#553c00",
+                        "on-surface-variant": "#434652",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "surface-tint": "#325baf",
+                        "secondary-fixed": "#d8e3fa",
+                        "tertiary": "#392700",
+                        "primary-container": "#003b8e",
+                        "primary": "#002662",
+                        "secondary-container": "#d5e0f7",
+                        "surface-container-high": "#e5e9eb",
+                        "on-tertiary-fixed": "#261900",
+                        "on-primary-fixed-variant": "#104295",
+                        "surface": "#f7fafc",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c3c6d3",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "surface-container-low": "#f1f4f6",
+                        "tertiary-fixed": "#ffdea5",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "outline": "#747783",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d7dadc",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#d9e2ff",
+                        "on-primary-container": "#86aaff",
+                        "surface-container-highest": "#e0e3e5",
+                        "background": "#f7fafc",
+                        "on-surface": "#181c1e",
+                        "on-secondary-container": "#586377",
+                        "surface-container": "#ebeef0",
+                        "secondary": "#545f72",
+                        "tertiary-fixed-dim": "#e9c176",
+                        "surface-bright": "#f7fafc",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "80px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "section-padding-lg": "120px",
+                        "section-padding-sm": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Libre Caslon Text"],
+                        "headline-lg-mobile": ["Libre Caslon Text"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-md": ["Libre Caslon Text"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-xl": ["Libre Caslon Text"],
+                        "headline-sm": ["Libre Caslon Text"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .split-pane-hover:hover .bg-overlay {
+            background-color: rgba(0, 25, 69, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased overflow-hidden">
+<!-- Brand Header -->
+<header class="fixed top-0 left-0 w-full z-50 pt-10 flex justify-center pointer-events-none">
+<div class="pointer-events-auto flex flex-col items-center gap-4 bg-surface/40 backdrop-blur-md px-8 py-4 rounded-lg border border-outline-variant/30">
+<img alt="Blue Pine Logo" class="h-16 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"/>
+</div>
+</header>
+<main class="flex flex-col md:flex-row h-screen w-full relative">
+<!-- Blue Pine Consulting (Left Section) -->
+<section class="relative w-full md:w-1/2 h-1/2 md:h-full group split-pane-hover cursor-pointer border-b md:border-b-0 md:border-r border-outline-variant/20 overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A high-angle, wide-shot photograph of a sleek, modern commercial skyscraper made of reflective glass and steel under a clear blue sky. The lighting is bright and architectural, highlighting the clean vertical lines of the corporate building. The overall mood is professional, stable, and authoritative, perfectly aligning with a high-end real estate consulting brand. The color palette is dominated by cool blues and metallic greys." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJ4OvLgYTPtmqsPZmG1BBY9pwJ5n1XG_IQKBpmrCOq1JxVyc9KDGu9eupDpZoyWDcRICoaKhotORX3egtNQTSs6eaR-V8Lv7Qafoe6wotkDviWK2b23A03xOhULYbkPrWXEHaGErPSwmngK_CXe29FYpM9IrtfyyIA-lcEjazLQV2tmowGJV7mjX6GxNgNSiAWv_zmR5O1FkseBjOg29R0cvmYkjb0U8rcUFc6SJm1XWKojYgrBnogaPhUql8jtBlYYwb6D21JqrU')">
+</div>
+<!-- Overlay -->
+<div class="absolute inset-0 bg-primary/30 transition-colors duration-500 bg-overlay"></div>
+<!-- Content -->
+<div class="relative h-full w-full flex flex-col items-center justify-center px-10 text-center">
+<div class="space-y-6">
+<span class="font-label-md text-label-md text-tertiary-fixed tracking-[0.2em] uppercase">Professional Services</span>
+<h2 class="font-headline-xl text-headline-xl text-on-primary">Blue Pine Consulting</h2>
+<p class="font-body-lg text-body-lg text-on-primary/80 max-w-md mx-auto">Strategic real estate solutions for corporate entities and high-net-worth investors.</p>
+<div class="pt-8">
+<a href="consulting.html" class="inline-block bg-primary text-on-primary font-label-md text-label-md px-10 py-5 rounded-[4px] uppercase tracking-widest hover:bg-primary-container transition-all shadow-xl text-center">
+                            Enter Site
+                        </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Blue Pine Advisor (Right Section) -->
+<section class="relative w-full md:w-1/2 h-1/2 md:h-full group split-pane-hover cursor-pointer overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A luxurious, contemporary residential estate featuring expansive glass walls, a manicured lawn, and a pristine infinity pool during a soft golden hour. The lighting is warm and inviting, casting a glow across the architectural details of the home. The scene exudes exclusivity, luxury, and comfort. The color palette is warm with golden highlights and deep, rich evening shadows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRhzats5cdDOhzhfGDulsw3gA_tuoE8fFkxrXqAfWMtPgPzRD0iUjBpfJXqIfkhIeeIcSJgj4GUokYfDZ47s2QtXZ3oGEMHur8uNYrMwbRK407692dBfzHnzzdRdsy3aZPYWbquzt4TfU8DDrxDP2pBUq5Lyak3_2PQk5rmfxmKjACitt3NJrj9ES-dCVPgAugZ6XcMsaJj4oB5B43tm2Qc4KSsLi2tEh7M6aMHZyfe4nECPfHnEIKQcIK-695oMJjTHB_VARS6JM')">
+</div>
+<!-- Overlay -->
+<div class="absolute inset-0 bg-primary/30 transition-colors duration-500 bg-overlay"></div>
+<!-- Content -->
+<div class="relative h-full w-full flex flex-col items-center justify-center px-10 text-center">
+<div class="space-y-6">
+<span class="font-label-md text-label-md text-tertiary-fixed tracking-[0.2em] uppercase">Private Advisory</span>
+<h2 class="font-headline-xl text-headline-xl text-on-primary">Blue Pine Advisor</h2>
+<p class="font-body-lg text-body-lg text-on-primary/80 max-w-md mx-auto">Bespoke residential management and tailored acquisition strategies for the discerning individual.</p>
+<div class="pt-8">
+<a href="advisor.html" class="inline-block bg-primary text-on-primary font-label-md text-label-md px-10 py-5 rounded-[4px] uppercase tracking-widest hover:bg-primary-container transition-all shadow-xl text-center">
+                            Enter Site
+                        </a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Subtle Navigation Indicators -->
+<footer class="fixed bottom-0 left-0 w-full z-50 pb-10 flex flex-col items-center gap-6 pointer-events-none">
+<div class="flex gap-12 pointer-events-auto">
+<a class="font-label-md text-label-md text-on-primary/60 hover:text-on-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-primary/60 hover:text-on-primary transition-colors" href="#">Legal Terms</a>
+<a class="font-label-md text-label-md text-on-primary/60 hover:text-on-primary transition-colors" href="#">Contact</a>
+</div>
+<p class="font-label-sm text-label-sm text-on-primary/40">© 2024 Blue Pine Real Estate. All rights reserved.</p>
+</footer>
+</body></html>
