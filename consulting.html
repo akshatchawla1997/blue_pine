@@ -116,15 +116,33 @@
         .hero-overlay {
             background: linear-gradient(rgba(0, 38, 98, 0.4), rgba(0, 38, 98, 0.6));
         }
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            display: none;
+        }
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            display: none;
+        }
     </style>
 </head>
 <body class="font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
 <!-- TopNavBar -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant">
-<nav class="flex justify-between items-center w-full px-margin-desktop h-20 max-w-[1200px] mx-auto">
-<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Blue Pine</div>
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg">
+<nav class="flex justify-between items-center w-full px-margin-desktop h-28 max-w-[1200px] mx-auto">
+<a href="index.html" class="flex items-center hover:opacity-80 transition-opacity">
+<img alt="Blue Pine Logo" class="h-20 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"/>
+</a>
 <div class="hidden md:flex items-center gap-8">
-<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1 font-bold" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
 <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#about">About</a>
 <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#services">Our Services</a>
 <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#contact">Contact</a>
@@ -152,29 +170,30 @@
 <!-- Lead Gen Form -->
 <div class="bg-surface-container-lowest p-10 rounded-xl border border-outline-variant shadow-lg max-w-md ml-auto">
 <h2 class="font-headline-sm text-headline-sm text-primary mb-8">Secure Your Strategy</h2>
-<form action="#" class="space-y-6">
+<form id="consultingForm" class="space-y-6">
 <div class="space-y-1">
 <label class="font-label-md text-label-md text-on-surface-variant">Name</label>
-<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface" placeholder="Your full name" type="text"/>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface" placeholder="Your full name" type="text" name="name" required/>
 </div>
 <div class="space-y-1">
 <label class="font-label-md text-label-md text-on-surface-variant">Contact Number</label>
-<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface" placeholder="+1 (555) 000-0000" type="tel"/>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface" placeholder="+1 (555) 000-0000" type="tel" name="contact" required/>
 </div>
 <div class="space-y-1">
 <label class="font-label-md text-label-md text-on-surface-variant">Email ID</label>
-<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface" placeholder="corporate@domain.com" type="email"/>
+<input class="w-full px-4 py-3 bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface" placeholder="corporate@domain.com" type="email" name="email" required/>
 </div>
 <div class="space-y-1">
 <label class="font-label-md text-label-md text-on-surface-variant">Requirement</label>
-<select class="w-full px-4 py-3 bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface appearance-none">
+<select class="w-full px-4 py-3 bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface appearance-none" name="requirement" required>
+<option value="">Select a requirement</option>
 <option>Market Analysis</option>
 <option>Portfolio Management</option>
 <option>Corporate Leasing</option>
 <option>Advisory Services</option>
 </select>
 </div>
-<button class="w-full bg-primary text-on-primary py-4 font-label-md text-label-md rounded uppercase tracking-widest hover:bg-primary-container transition-all mt-4" type="submit">Submit Inquiry</button>
+<button class="w-full bg-primary text-on-primary py-4 font-label-md text-label-md rounded uppercase tracking-widest hover:bg-primary-container transition-all mt-4" type="submit" id="submitBtn">Submit Inquiry</button>
 </form>
 </div>
 </div>
@@ -307,7 +326,9 @@
 <footer class="bg-on-background dark:bg-surface-container-lowest">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-padding-sm max-w-[1200px] mx-auto">
 <div class="space-y-6">
-<div class="font-headline-md text-headline-md text-surface dark:text-on-background">Blue Pine</div>
+<a href="index.html" class="inline-block hover:opacity-80 transition-opacity">
+<img alt="Blue Pine Logo" class="h-16 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"/>
+</a>
 <p class="font-body-md text-body-md text-surface-variant dark:text-on-surface-variant opacity-80">
                     Institutional-grade consulting for the global commercial landscape.
                 </p>
@@ -343,4 +364,60 @@
             </p>
 </div>
 </footer>
+<script>
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxhRiSqMppLHlB-sUkT0nHw4lbUuIHrDjAUFpX4XvlZd82XbW7-uipcO7w7D-aPJGxHLw/exec';
+
+document.getElementById('consultingForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submitBtn');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    
+    const formData = new FormData(this);
+    const data = {
+        name: formData.get('name'),
+        contact: formData.get('contact'),
+        email: formData.get('email'),
+        requirement: formData.get('requirement'),
+        source: 'Consulting Page',
+        timestamp: new Date().toLocaleString()
+    };
+    
+    try {
+        const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify(data)
+        });
+        
+        if (response.ok) {
+            document.getElementById('consultingForm').reset();
+            const successMsg = document.createElement('div');
+            successMsg.className = 'success-message';
+            successMsg.textContent = 'Thank you! Your inquiry has been submitted successfully.';
+            successMsg.style.display = 'block';
+            document.getElementById('consultingForm').parentElement.insertBefore(successMsg, document.getElementById('consultingForm'));
+            
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 5000);
+        } else {
+            throw new Error('Form submission failed');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'error-message';
+        errorMsg.textContent = 'Error submitting form. Please try again.';
+        errorMsg.style.display = 'block';
+        document.getElementById('consultingForm').parentElement.insertBefore(errorMsg, document.getElementById('consultingForm'));
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+    }
+});
+</script>
+</body></html>
+</script>
 </body></html>

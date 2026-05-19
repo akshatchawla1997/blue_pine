@@ -107,31 +107,44 @@
         .split-pane-hover:hover .bg-overlay {
             background-color: rgba(0, 25, 69, 0.4);
         }
+        /* Background Image Optimization */
+        .bg-image-optimized {
+            will-change: transform;
+            contain: layout style paint;
+            background-attachment: local;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Faster transitions during hover */
+        .group:hover .bg-image-optimized {
+            will-change: transform;
+        }
     </style>
 </head>
 <body class="bg-background text-on-background antialiased overflow-hidden">
 <!-- Brand Header -->
-<header class="fixed top-0 left-0 w-full z-50 pt-10 flex justify-center pointer-events-none">
-<div class="pointer-events-auto flex flex-col items-center gap-4 bg-surface/40 backdrop-blur-md px-8 py-4 rounded-lg border border-outline-variant/30">
-<img alt="Blue Pine Logo" class="h-16 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"/>
+<header class="fixed top-0 left-0 w-full z-50 pt-8 flex justify-center pointer-events-none">
+<div class="pointer-events-auto flex flex-col items-center gap-4 bg-surface/50 backdrop-blur-lg px-10 py-6 rounded-lg border border-outline-variant/25 shadow-lg">
+<img alt="Blue Pine Logo" class="h-32 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"/>
 </div>
 </header>
 <main class="flex flex-col md:flex-row h-screen w-full relative">
 <!-- Blue Pine Consulting (Left Section) -->
 <section class="relative w-full md:w-1/2 h-1/2 md:h-full group split-pane-hover cursor-pointer border-b md:border-b-0 md:border-r border-outline-variant/20 overflow-hidden">
 <!-- Background Image -->
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A high-angle, wide-shot photograph of a sleek, modern commercial skyscraper made of reflective glass and steel under a clear blue sky. The lighting is bright and architectural, highlighting the clean vertical lines of the corporate building. The overall mood is professional, stable, and authoritative, perfectly aligning with a high-end real estate consulting brand. The color palette is dominated by cool blues and metallic greys." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJ4OvLgYTPtmqsPZmG1BBY9pwJ5n1XG_IQKBpmrCOq1JxVyc9KDGu9eupDpZoyWDcRICoaKhotORX3egtNQTSs6eaR-V8Lv7Qafoe6wotkDviWK2b23A03xOhULYbkPrWXEHaGErPSwmngK_CXe29FYpM9IrtfyyIA-lcEjazLQV2tmowGJV7mjX6GxNgNSiAWv_zmR5O1FkseBjOg29R0cvmYkjb0U8rcUFc6SJm1XWKojYgrBnogaPhUql8jtBlYYwb6D21JqrU')">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 bg-image-optimized" data-alt="A high-angle, wide-shot photograph of a sleek, modern commercial skyscraper made of reflective glass and steel under a clear blue sky. The lighting is bright and architectural, highlighting the clean vertical lines of the corporate building. The overall mood is professional, stable, and authoritative, perfectly aligning with a high-end real estate consulting brand. The color palette is dominated by cool blues and metallic greys." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJ4OvLgYTPtmqsPZmG1BBY9pwJ5n1XG_IQKBpmrCOq1JxVyc9KDGu9eupDpZoyWDcRICoaKhotORX3egtNQTSs6eaR-V8Lv7Qafoe6wotkDviWK2b23A03xOhULYbkPrWXEHaGErPSwmngK_CXe29FYpM9IrtfyyIA-lcEjazLQV2tmowGJV7mjX6GxNgNSiAWv_zmR5O1FkseBjOg29R0cvmYkjb0U8rcUFc6SJm1XWKojYgrBnogaPhUql8jtBlYYwb6D21JqrU=w1280-rj'); background-color: #002662;">
 </div>
 <!-- Overlay -->
 <div class="absolute inset-0 bg-primary/30 transition-colors duration-500 bg-overlay"></div>
 <!-- Content -->
 <div class="relative h-full w-full flex flex-col items-center justify-center px-10 text-center">
-<div class="space-y-6">
-<span class="font-label-md text-label-md text-tertiary-fixed tracking-[0.2em] uppercase">Professional Services</span>
-<h2 class="font-headline-xl text-headline-xl text-on-primary">Blue Pine Consulting</h2>
-<p class="font-body-lg text-body-lg text-on-primary/80 max-w-md mx-auto">Strategic real estate solutions for corporate entities and high-net-worth investors.</p>
-<div class="pt-8">
-<a href="consulting.html" class="inline-block bg-primary text-on-primary font-label-md text-label-md px-10 py-5 rounded-[4px] uppercase tracking-widest hover:bg-primary-container transition-all shadow-xl text-center">
+<div class="space-y-8">
+<span class="font-label-md text-label-md text-tertiary-fixed tracking-[0.3em] uppercase text-sm opacity-90">Professional Services</span>
+<h2 class="font-headline-lg text-headline-lg text-on-primary tracking-tight leading-tight">Blue Pine Consulting</h2>
+<p class="font-body-lg text-body-lg text-on-primary/85 max-w-lg mx-auto leading-relaxed">Strategic real estate solutions for corporate entities and high-net-worth investors.</p>
+<div class="pt-10">
+<a href="consulting.html" class="inline-block bg-primary text-on-primary font-label-md text-label-md px-12 py-4 rounded-[4px] uppercase tracking-wider hover:bg-primary-container transition-all shadow-2xl text-center hover:shadow-3xl hover:scale-105 duration-300">
                             Enter Site
                         </a>
 </div>
@@ -141,18 +154,18 @@
 <!-- Blue Pine Advisor (Right Section) -->
 <section class="relative w-full md:w-1/2 h-1/2 md:h-full group split-pane-hover cursor-pointer overflow-hidden">
 <!-- Background Image -->
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A luxurious, contemporary residential estate featuring expansive glass walls, a manicured lawn, and a pristine infinity pool during a soft golden hour. The lighting is warm and inviting, casting a glow across the architectural details of the home. The scene exudes exclusivity, luxury, and comfort. The color palette is warm with golden highlights and deep, rich evening shadows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRhzats5cdDOhzhfGDulsw3gA_tuoE8fFkxrXqAfWMtPgPzRD0iUjBpfJXqIfkhIeeIcSJgj4GUokYfDZ47s2QtXZ3oGEMHur8uNYrMwbRK407692dBfzHnzzdRdsy3aZPYWbquzt4TfU8DDrxDP2pBUq5Lyak3_2PQk5rmfxmKjACitt3NJrj9ES-dCVPgAugZ6XcMsaJj4oB5B43tm2Qc4KSsLi2tEh7M6aMHZyfe4nECPfHnEIKQcIK-695oMJjTHB_VARS6JM')">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 bg-image-optimized" data-alt="A luxurious, contemporary residential estate featuring expansive glass walls, a manicured lawn, and a pristine infinity pool during a soft golden hour. The lighting is warm and inviting, casting a glow across the architectural details of the home. The scene exudes exclusivity, luxury, and comfort. The color palette is warm with golden highlights and deep, rich evening shadows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRhzats5cdDOhzhfGDulsw3gA_tuoE8fFkxrXqAfWMtPgPzRD0iUjBpfJXqIfkhIeeIcSJgj4GUokYfDZ47s2QtXZ3oGEMHur8uNYrMwbRK407692dBfzHnzzdRdsy3aZPYWbquzt4TfU8DDrxDP2pBUq5Lyak3_2PQk5rmfxmKjACitt3NJrj9ES-dCVPgAugZ6XcMsaJj4oB5B43tm2Qc4KSsLi2tEh7M6aMHZyfe4nECPfHnEIKQcIK-695oMJjTHB_VARS6JM=w1280-rj'); background-color: #c97f4d;">
 </div>
 <!-- Overlay -->
 <div class="absolute inset-0 bg-primary/30 transition-colors duration-500 bg-overlay"></div>
 <!-- Content -->
 <div class="relative h-full w-full flex flex-col items-center justify-center px-10 text-center">
-<div class="space-y-6">
-<span class="font-label-md text-label-md text-tertiary-fixed tracking-[0.2em] uppercase">Private Advisory</span>
-<h2 class="font-headline-xl text-headline-xl text-on-primary">Blue Pine Advisor</h2>
-<p class="font-body-lg text-body-lg text-on-primary/80 max-w-md mx-auto">Bespoke residential management and tailored acquisition strategies for the discerning individual.</p>
-<div class="pt-8">
-<a href="advisor.html" class="inline-block bg-primary text-on-primary font-label-md text-label-md px-10 py-5 rounded-[4px] uppercase tracking-widest hover:bg-primary-container transition-all shadow-xl text-center">
+<div class="space-y-8">
+<span class="font-label-md text-label-md text-tertiary-fixed tracking-[0.3em] uppercase text-sm opacity-90">Private Advisory</span>
+<h2 class="font-headline-lg text-headline-lg text-on-primary tracking-tight leading-tight">Blue Pine Advisor</h2>
+<p class="font-body-lg text-body-lg text-on-primary/85 max-w-lg mx-auto leading-relaxed">Bespoke residential management and tailored acquisition strategies for the discerning individual.</p>
+<div class="pt-10">
+<a href="advisor.html" class="inline-block bg-primary text-on-primary font-label-md text-label-md px-12 py-4 rounded-[4px] uppercase tracking-wider hover:bg-primary-container transition-all shadow-2xl text-center hover:shadow-3xl hover:scale-105 duration-300">
                             Enter Site
                         </a>
 </div>

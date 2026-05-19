@@ -19,6 +19,22 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
         }
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            display: none;
+        }
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            display: none;
+        }
     </style>
 <script id="tailwind-config">
         tailwind.config = {
@@ -116,19 +132,22 @@
 </head>
 <body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
 <!-- TopNavBar -->
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-surface/90 backdrop-blur-md border-b border-outline-variant">
-<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-20 max-w-[1200px] mx-auto">
-<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Blue Pine</div>
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-lg">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-28 max-w-[1200px] mx-auto">
+<a href="index.html" class="flex items-center hover:opacity-80 transition-opacity">
+<img alt="Blue Pine Logo" class="h-20 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"/>
+</a>
+</a>
 <!-- Desktop Nav -->
 <ul class="hidden md:flex items-center gap-10">
-<li><a class="text-primary border-b-2 border-primary pb-1 font-bold font-label-md text-label-md" href="#home">Home</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#home">Home</a></li>
 <li><a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#about">About</a></li>
 <li><a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#services">Our Services</a></li>
 <li><a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#contact">Contact</a></li>
 </ul>
 <div class="flex items-center gap-4">
-<button class="hidden md:flex items-center text-primary font-bold font-label-md text-label-md px-4 py-2 hover:bg-surface-container-low transition-all">Advisor</button>
-<button class="bg-primary text-on-primary px-6 py-2.5 rounded-DEFAULT font-label-md text-label-md hover:bg-primary-container transition-all">Consulting</button>
+<button class="hidden md:flex items-center bg-primary text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-DEFAULT hover:bg-primary-container transition-all">Advisor</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md">Consulting</button>
 </div>
 </nav>
 </header>
@@ -148,31 +167,32 @@
 <div class="lg:w-1/2 w-full max-w-md">
 <div class="glass-panel p-8 shadow-xl rounded-lg">
 <h2 class="font-headline-sm text-headline-sm text-primary mb-6">Inquiry for Excellence</h2>
-<form class="space-y-4">
+<form id="advisorForm" class="space-y-4">
 <div>
 <label class="block font-label-md text-label-md text-on-surface-variant mb-1">Name</label>
-<input class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" placeholder="John Doe" type="text"/>
+<input class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" placeholder="John Doe" type="text" name="name" required/>
 </div>
 <div class="grid grid-cols-2 gap-4">
 <div>
 <label class="block font-label-md text-label-md text-on-surface-variant mb-1">Contact Number</label>
-<input class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" placeholder="+1..." type="tel"/>
+<input class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" placeholder="+1..." type="tel" name="contact" required/>
 </div>
 <div>
 <label class="block font-label-md text-label-md text-on-surface-variant mb-1">Email ID</label>
-<input class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" placeholder="john@example.com" type="email"/>
+<input class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" placeholder="john@example.com" type="email" name="email" required/>
 </div>
 </div>
 <div>
 <label class="block font-label-md text-label-md text-on-surface-variant mb-1">Requirement</label>
-<select class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT">
+<select class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" name="requirement" required>
+<option value="">Select a requirement</option>
 <option>Property Acquisition</option>
 <option>Investment Advisory</option>
 <option>Valuation Services</option>
 <option>Other</option>
 </select>
 </div>
-<button class="w-full bg-primary text-on-primary font-bold py-4 rounded-DEFAULT hover:bg-primary-container transition-all shadow-md mt-4" type="submit">Submit Application</button>
+<button class="w-full bg-primary text-on-primary font-bold py-4 rounded-DEFAULT hover:bg-primary-container transition-all shadow-md mt-4" type="submit" id="submitBtn">Submit Application</button>
 </form>
 </div>
 </div>
@@ -304,7 +324,9 @@
 <footer class="bg-on-background dark:bg-surface-container-lowest border-t border-outline/10">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-padding-sm max-w-[1200px] mx-auto">
 <div class="space-y-6">
-<div class="font-headline-md text-headline-md text-surface">Blue Pine</div>
+<a href="index.html" class="inline-block hover:opacity-80 transition-opacity">
+<img alt="Blue Pine Logo" class="h-16 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"/>
+</a>
 <p class="text-surface-variant opacity-80 font-body-md">Architecting luxury real estate experiences since 2008.</p>
 </div>
 <div class="space-y-4">
@@ -337,4 +359,60 @@
 <p class="text-surface-variant opacity-60 text-label-sm font-label-sm">© 2024 Blue Pine Real Estate. All rights reserved.</p>
 </div>
 </footer>
+<script>
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxhRiSqMppLHlB-sUkT0nHw4lbUuIHrDjAUFpX4XvlZd82XbW7-uipcO7w7D-aPJGxHLw/exec';
+
+document.getElementById('advisorForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submitBtn');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    
+    const formData = new FormData(this);
+    const data = {
+        name: formData.get('name'),
+        contact: formData.get('contact'),
+        email: formData.get('email'),
+        requirement: formData.get('requirement'),
+        source: 'Advisor Page',
+        timestamp: new Date().toLocaleString()
+    };
+    
+    try {
+        const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify(data)
+        });
+        
+        if (response.ok) {
+            document.getElementById('advisorForm').reset();
+            const successMsg = document.createElement('div');
+            successMsg.className = 'success-message';
+            successMsg.textContent = 'Thank you! Your application has been submitted successfully.';
+            successMsg.style.display = 'block';
+            document.getElementById('advisorForm').parentElement.insertBefore(successMsg, document.getElementById('advisorForm'));
+            
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 5000);
+        } else {
+            throw new Error('Form submission failed');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'error-message';
+        errorMsg.textContent = 'Error submitting form. Please try again.';
+        errorMsg.style.display = 'block';
+        document.getElementById('advisorForm').parentElement.insertBefore(errorMsg, document.getElementById('advisorForm'));
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+    }
+});
+</script>
+</body></html>
+</script>
 </body></html>
