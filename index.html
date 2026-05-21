@@ -129,8 +129,8 @@
 <body class="bg-background text-on-background antialiased overflow-hidden">
 <!-- Brand Header -->
 <header class="fixed top-0 left-0 w-full z-50 pt-6 md:pt-8 flex justify-center pointer-events-none">
-<div class="pointer-events-auto flex flex-col items-center gap-4 bg-surface/50 backdrop-blur-lg px-6 md:px-10 py-4 md:py-6 rounded-lg border border-outline-variant/25 shadow-lg">
-<img alt="Blue Pine Logo" class="h-20 md:h-64 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"/>
+<div class="pointer-events-auto flex flex-col items-center gap-3 bg-surface/50 backdrop-blur-lg px-3 md:px-3 py-3 md:py-3 rounded-lg border border-outline-variant/20 shadow-lg">
+<img alt="Blue Pine Logo" class="h-12 md:h-40 w-64 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"/>
 </div>
 </header>
 <main class="flex flex-col md:flex-row h-auto md:h-screen w-full relative">
@@ -146,7 +146,7 @@
 <div class="space-y-6 md:space-y-8">
 <span class="font-label-md text-label-md text-tertiary-fixed tracking-[0.3em] uppercase text-sm opacity-90">Professional Services</span>
 <h2 class="font-headline-md md:font-headline-lg text-headline-md md:text-headline-lg text-on-primary tracking-tight leading-tight">Blue Pine Consulting</h2>
-<p class="font-body-md md:font-body-lg text-body-md md:text-body-lg text-on-primary/85 max-w-sm md:max-w-lg mx-auto leading-relaxed">Strategic real estate solutions for corporate entities and high-net-worth investors.</p>
+<p class="font-body-md md:font-body-lg text-body-md md:text-body-lg text-on-primary/85 max-w-sm md:max-w-lg mx-auto leading-relaxed">We Deal Only in the Top 3 Residential Projects</p>
 <div class="pt-8 md:pt-10">
 <a href="consulting.html" class="inline-block bg-primary text-on-primary font-label-md text-label-md px-8 md:px-12 py-3 md:py-4 rounded-[4px] uppercase tracking-wider hover:bg-primary-container transition-all shadow-2xl text-center hover:shadow-3xl hover:scale-105 duration-300">
                             Enter Site
@@ -166,8 +166,8 @@
 <div class="relative h-full w-full flex flex-col items-center justify-center px-6 md:px-10 text-center pt-32 md:pt-0">
 <div class="space-y-6 md:space-y-8">
 <span class="font-label-md text-label-md text-tertiary-fixed tracking-[0.3em] uppercase text-sm opacity-90">Private Advisory</span>
-<h2 class="font-headline-md md:font-headline-lg text-headline-md md:text-headline-lg text-on-primary tracking-tight leading-tight">Blue Pine Advisor</h2>
-<p class="font-body-md md:font-body-lg text-body-md md:text-body-lg text-on-primary/85 max-w-sm md:max-w-lg mx-auto leading-relaxed">Bespoke residential management and tailored acquisition strategies for the discerning individual.</p>
+<h2 class="font-headline-md md:font-headline-lg text-headline-md md:text-headline-lg text-on-primary tracking-tight leading-tight">for legal issues<br/><span id="indexFlipText" class="inline-block min-w-[200px] mt-4 px-6 py-3 bg-white text-primary font-bold rounded-lg shadow-lg transform transition-all duration-300 hover:shadow-2xl opacity-85">anytime</span></h2>
+<p class="font-body-md md:font-body-lg text-body-md md:text-body-lg text-on-primary/85 max-w-sm md:max-w-lg mx-auto leading-relaxed mt-8">Professional legal advisory available round the clock</p>
 <div class="pt-8 md:pt-10">
 <a href="advisor.html" class="inline-block bg-primary text-on-primary font-label-md text-label-md px-8 md:px-12 py-3 md:py-4 rounded-[4px] uppercase tracking-wider hover:bg-primary-container transition-all shadow-2xl text-center hover:shadow-3xl hover:scale-105 duration-300">
                             Enter Site
@@ -186,4 +186,16 @@
 </div>
 <p class="font-label-sm text-label-sm text-on-primary/40 text-center px-4">© 2024 Blue Pine Real Estate. All rights reserved.</p>
 </footer>
+<script>
+// Flipping text functionality for index page
+let isIndexFlipped = false;
+setInterval(() => {
+    const flipText = document.getElementById('indexFlipText');
+    if (flipText) {
+        isIndexFlipped = !isIndexFlipped;
+        flipText.textContent = isIndexFlipped ? 'anywhere' : 'anytime';
+        flipText.style.transition = 'opacity 0.3s ease';
+    }
+}, 1000);
+</script>
 </body></html>

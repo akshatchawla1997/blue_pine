@@ -20,20 +20,50 @@
             backdrop-filter: blur(10px);
         }
         .success-message {
-            background-color: #d4edda;
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
             color: #155724;
-            padding: 12px 16px;
-            border-radius: 4px;
+            padding: 16px;
+            border-radius: 8px;
             margin-bottom: 16px;
             display: none;
+            border-left: 4px solid #28a745;
+            box-shadow: 0 2px 8px rgba(40, 167, 69, 0.15);
+            animation: slideIn 0.3s ease-out;
         }
         .error-message {
-            background-color: #f8d7da;
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
             color: #721c24;
-            padding: 12px 16px;
-            border-radius: 4px;
+            padding: 16px;
+            border-radius: 8px;
             margin-bottom: 16px;
             display: none;
+            border-left: 4px solid #dc3545;
+            box-shadow: 0 2px 8px rgba(220, 53, 69, 0.15);
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .btn-loader {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 <script id="tailwind-config">
@@ -146,7 +176,7 @@
 <li><a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#contact">Contact</a></li>
 </ul>
 <div class="flex items-center gap-4">
-<button class="hidden md:flex items-center bg-primary text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-DEFAULT hover:bg-primary-container transition-all">Advisor</button>
+<button class="hidden md:flex items-center bg-primary text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-DEFAULT hover:bg-primary-container transition-all">Legal Advisor</button>
 <a href="consulting.html" class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md">Consulting</a>
 </div>
 </nav>
@@ -161,40 +191,9 @@
 </div>
 <div class="relative z-10 w-full max-w-[1200px] px-margin-mobile md:px-margin-desktop flex flex-col lg:flex-row items-center gap-12 py-section-padding-sm">
 <div class="lg:w-1/2 text-center lg:text-left text-on-primary">
-<h1 class="font-headline-xl text-headline-xl mb-6 leading-tight">Elevating Modern Living</h1>
-<p class="font-body-lg text-body-lg opacity-90 max-w-lg mx-auto lg:mx-0">Bespoke residential advisory for those who seek more than just a home—we curate legacies through architectural excellence and strategic investment.</p>
-</div>
-<div class="lg:w-1/2 w-full max-w-md">
-<div class="glass-panel p-8 shadow-xl rounded-lg">
-<h2 class="font-headline-sm text-headline-sm text-primary mb-6">Inquiry for Excellence</h2>
-<form id="advisorForm" class="space-y-4">
-<div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Name</label>
-<input class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" placeholder="John Doe" type="text" name="name" required/>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Contact Number</label>
-<input class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" placeholder="+91 99999 99999" type="tel" name="contact" required/>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Email ID</label>
-<input class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" placeholder="john@example.com" type="email" name="email" required/>
-</div>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Requirement</label>
-<select class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" name="requirement" required>
-<option value="">Select a requirement</option>
-<option>Property Acquisition</option>
-<option>Investment Advisory</option>
-<option>Valuation Services</option>
-<option>Other</option>
-</select>
-</div>
-<button class="w-full bg-primary text-on-primary font-bold py-4 rounded-DEFAULT hover:bg-primary-container transition-all shadow-md mt-4" type="submit" id="submitBtn">Submit Application</button>
-</form>
-</div>
+<h1 class="font-headline-xl text-headline-xl mb-6 leading-tight">for legal issues<br/><span id="flipText" class="inline-block min-w-[200px] mt-4 px-6 py-3 bg-white text-primary font-bold rounded-lg shadow-lg transform transition-all duration-300 hover:shadow-2xl opacity-85">anytime</span></h1>
+<p class="font-body-lg text-body-lg opacity-90 max-w-lg mx-auto lg:mx-0 mt-8">Professional legal advisory available round the clock</p>
+<button class="mt-8 bg-primary text-on-primary font-label-md text-label-md px-8 py-3 rounded-DEFAULT hover:bg-primary-container transition-all shadow-md" onclick="openBookingForm()">Book Appointment</button>
 </div>
 </div>
 </section>
@@ -204,28 +203,30 @@
 <div class="flex flex-col lg:flex-row gap-20 items-center">
 <div class="lg:w-1/2 relative">
 <div class="aspect-[4/5] bg-surface-container-high rounded-xl overflow-hidden shadow-lg border border-outline-variant">
-<img alt="Modern Interior" class="w-full h-full object-cover" data-alt="A clean, minimalist luxury apartment interior featuring soaring ceilings and sleek, dark wood paneling against off-white walls. Large architectural books sit on a low-profile marble coffee table, flanked by a designer velvet sofa in a muted slate blue. The lighting is soft and indirect, casting gentle shadows that emphasize the spaciousness and the premium quality of the interior design materials. The mood is professional, calm, and highly exclusive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtZ2MTKLOMcHCzHroHl_RIU083Z8zQX4EHaV66fGexuaPbxSYJ2yo7RkwWHH1713x7Z_YBE6ukPYTCR5AB2ZFcmh6HPDvsmgGKWUhNKkgFpGvF8Lh7_yOTli2TgETJgt1R7bDx6IYS87yP5pWiIT02yr18OdViykTtrDQYffxVNRtLKNTYYNdUTh466MwBPWfooC6LlUIKS_95I9ZKZavczA5SVGoEFzf1EtnrPqmTak2OocsRHC0vCJ_SMWmhNWM0-zMy7mmv0A4"/>
+<img alt="P.N Parashar" class="w-full h-full object-cover" src="public/p.n. parashar.jpeg"/>
 </div>
 <div class="absolute -bottom-10 -right-10 hidden lg:block bg-primary p-10 text-on-primary max-w-xs shadow-xl">
 <p class="font-headline-sm text-headline-sm italic">"Precision in every detail, trust in every transaction."</p>
 </div>
 </div>
 <div class="lg:w-1/2">
-<span class="text-on-tertiary-container font-label-md text-label-md tracking-widest uppercase mb-4 block">Our Philosophy</span>
-<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Personalized Property Strategy for the Global Citizen.</h2>
+<span class="text-on-tertiary-container font-label-md text-label-md tracking-widest uppercase mb-4 block">Our Advisor</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Mr. P.N Parashar</h2>
 <div class="space-y-6 text-on-surface-variant font-body-lg">
-<p>Blue Pine Advisor serves as the primary gateway to the world's most exclusive residential markets. We don't just find houses; we secure long-term value and lifestyle alignment through rigorous data analysis and deep local insight.</p>
-<p>Our methodology is rooted in the architecture of trust. We operate with absolute discretion, providing a white-glove experience that simplifies the complex landscape of high-net-worth real estate acquisition.</p>
+<p>Prem Narayan Parashar is a highly respected legal professional with more than 35 years of distinguished experience in the Indian judicial and legal system. With an exceptional academic background from Aligarh Muslim University, where he secured First Position and Gold Medals in LL.B. and LL.M., he has built a remarkable career marked by integrity, excellence, and deep legal expertise.
+
+He has served in several prestigious positions, including Judicial Member at the Income Tax Appellate Tribunal (ITAT), Judicial Member at the Central Administrative Tribunal (CAT), and Member of the Competition Commission of India (CCI). He has also been associated with the Higher Judicial Services of Uttar Pradesh in multiple senior capacities throughout his career.
+
+As Senior Partner at “Parashar & Parashar” Law Firm, he has represented and advised matters before the Supreme Court of India, various High Courts, and tribunals across the country. His expertise spans litigation, legal advisory, compliance, dispute resolution, and strategic legal consultation across diverse sectors.
+
+At our organization, Mr. Parashar brings invaluable legal insight, strong ethical leadership, and decades of judicial experience, ensuring transparent, compliant, and professionally guided operations.</p>
 </div>
 <div class="mt-10 pt-10 border-t border-outline-variant grid grid-cols-2 gap-8">
 <div>
-<h4 class="font-headline-sm text-headline-sm text-primary mb-2">15+</h4>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-2">35+</h4>
 <p class="font-label-md text-label-md">Years of Advisory</p>
 </div>
-<div>
-<h4 class="font-headline-sm text-headline-sm text-primary mb-2">$2B+</h4>
-<p class="font-label-md text-label-md">Portfolio Value</p>
-</div>
+
 </div>
 </div>
 </div>
@@ -235,7 +236,7 @@
 <section class="py-section-padding-lg bg-on-background text-surface overflow-hidden" id="services">
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="text-center mb-20">
-<h2 class="font-headline-lg text-headline-lg mb-6">Expertise &amp; Execution</h2>
+<h2 class="font-headline-lg text-headline-lg mb-6">Services</h2>
 <p class="max-w-2xl mx-auto opacity-70 font-body-lg">Comprehensive consulting services tailored to the acquisition, valuation, and management of ultra-premium residential assets.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -244,8 +245,8 @@
 <div class="mb-8 inline-block p-4 bg-primary-container rounded-lg group-hover:bg-primary transition-colors">
 <span class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary" data-icon="real_estate_agent">real_estate_agent</span>
 </div>
-<h3 class="font-headline-sm text-headline-sm mb-4">Buyer Representation</h3>
-<p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">Exclusive advocacy for domestic and international buyers, ensuring access to off-market inventory and superior negotiation leverage.</p>
+<h3 class="font-headline-sm text-headline-sm mb-4">Property Lawyer</h3>
+<p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">Property Lawyer services for secure and legally verified real estate transactions.</p>
 <a class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary" href="#">
                             Learn More <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
 </a>
@@ -255,8 +256,10 @@
 <div class="mb-8 inline-block p-4 bg-primary-container rounded-lg group-hover:bg-primary transition-colors">
 <span class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary" data-icon="analytics">analytics</span>
 </div>
-<h3 class="font-headline-sm text-headline-sm mb-4">Property Valuation</h3>
-<p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">In-depth market analysis using proprietary algorithms and local intelligence to determine the true intrinsic value of premium estates.</p>
+<h3 class="font-headline-sm text-headline-sm mb-4">Corporate Lawyer
+</h3>
+<p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">Corporate Legal Services for Contracts, Compliance & Business Protection.
+</p>
 <a class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary" href="#">
                             Learn More <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
 </a>
@@ -266,8 +269,8 @@
 <div class="mb-8 inline-block p-4 bg-primary-container rounded-lg group-hover:bg-primary transition-colors">
 <span class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary" data-icon="insights">insights</span>
 </div>
-<h3 class="font-headline-sm text-headline-sm mb-4">Investment Advice</h3>
-<p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">Strategic residential asset allocation and portfolio optimization designed to preserve and grow generational wealth.</p>
+<h3 class="font-headline-sm text-headline-sm mb-4">Supreme Court Lawyer</h3>
+<p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">Experienced Supreme Court Lawyers for High-Profile & Complex Legal Matters.</p>
 <a class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary" href="#">
                             Learn More <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
 </a>
@@ -275,45 +278,7 @@
 </div>
 </div>
 </section>
-<!-- Featured Projects Section -->
-<section class="py-section-padding-lg bg-on-background text-surface overflow-hidden">
-<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-20">
-<h2 class="font-headline-lg text-headline-lg mb-6">Featured Projects</h2>
-<p class="max-w-2xl mx-auto opacity-70 font-body-lg">Premium residential developments showcasing architectural excellence and exceptional investment potential.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-<!-- Project 1 -->
-<div class="group border border-outline/30 p-10 hover:bg-surface-container-lowest hover:text-on-surface transition-all duration-500">
-<div class="mb-8">
-<div class="bg-gradient-to-br from-primary to-primary-container p-12 rounded-lg group-hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-on-primary text-5xl" data-icon="domain">domain</span>
-</div>
-</div>
-<h3 class="font-headline-sm text-headline-sm mb-4">Max Sector 105</h3>
-<p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">A landmark residential development featuring ultra-modern architecture and premium amenities designed for discerning investors seeking luxury and value appreciation.</p>
-<div class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary">
-<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
-Premium Location
-</div>
-</div>
-<!-- Project 2 -->
-<div class="group border border-outline/30 p-10 hover:bg-surface-container-lowest hover:text-on-surface transition-all duration-500">
-<div class="mb-8">
-<div class="bg-gradient-to-br from-primary to-primary-container p-12 rounded-lg group-hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-on-primary text-5xl" data-icon="castle">castle</span>
-</div>
-</div>
-<h3 class="font-headline-sm text-headline-sm mb-4">Heritage Indrapuram</h3>
-<p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">An exclusive residential enclave blending contemporary luxury with heritage aesthetics, offering bespoke homes in a serene environment with strategic market positioning.</p>
-<div class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary">
-<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
-Exclusive Development
-</div>
-</div>
-</div>
-</div>
-</section>
+
 <!-- Contact Section -->
 <section class="py-section-padding-lg bg-surface" id="contact">
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
@@ -333,7 +298,7 @@ Exclusive Development
 <span class="material-symbols-outlined text-primary" data-icon="call">call</span>
 <div>
 <p class="font-label-md text-label-md text-primary mb-1">Direct Line</p>
-<p class="font-body-md text-on-surface-variant">+91 7599202085</p>
+<p class="font-body-md text-on-surface-variant">+91 9891231637</p>
 </div>
 </div>
 <div class="flex items-start gap-4">
@@ -345,13 +310,14 @@ Exclusive Development
 </div>
 </div>
 </div>
-<div class="h-[400px] bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant relative grayscale hover:grayscale-0 transition-all duration-700 shadow-lg">
-<!-- Map Placeholder -->
-<img class="w-full h-full object-cover" data-alt="A stylized, high-contrast urban map or aerial view of a prestigious metropolitan area, specifically focusing on a modern financial district with clean grid patterns. The image has a sophisticated neutral color grading with deep blues and slate grays, representing an architectural and professional perspective of a prime real estate location. The lighting is diffused, giving it a blueprint-like quality suitable for a high-end corporate advisory background." data-location="Manhattan, New York" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZuc1I_P1WkpvtQxANDsQB-T9HoktVMXI0odMb7eOJh0Y-k0XKQAxAQoTMyr1bJKuYGibYLCD-ZgqyLxCyGmEThSUPwTzLXHRE5FRB36qNFr1OyoRqYRyk68GGLgI7psTSJQqD2blvxIwWIXtfhGyy_pB3U_o29Pq6yE-wGOkL8HhW2jtePxk-DCcS-_zV3p3oxPE6yIrUGP6ybzh8aWS7h_dB0V-S8lBoNZsybsr3kKQr7lWdSE3fnOtgsAEWXT3GFjNkoYi46RE"/>
-<div class="absolute inset-0 flex items-center justify-center">
-<div class="bg-primary text-on-primary px-4 py-2 shadow-xl flex items-center gap-2">
-<span class="material-symbols-outlined text-sm" data-icon="push_pin" data-weight="fill" style="font-variation-settings: 'FILL' 1;">push_pin</span>
-<span class="font-label-md text-label-md">Blue Pine HQ</span>
+<div class="h-[400px] bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant relative shadow-lg">
+<!-- Interactive Map -->
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5684089236324!2d77.35879872346897!3d28.592089874200008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sNPX%20Urbtech%2C%20Sector%20153%2C%20Noida!2s28.5920894%2C77.3587987!5e0!3m2!1sen!2sin!4v1716312000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-4 py-2 rounded-lg shadow-xl flex items-center gap-2 pointer-events-none">
+<span class="material-symbols-outlined text-lg" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<div>
+<p class="font-label-md text-label-md font-semibold">Blue Pine HQ</p>
+<p class="font-body-sm text-body-sm text-on-primary/80 text-xs">Noida, India</p>
 </div>
 </div>
 </div>
@@ -401,54 +367,126 @@ Exclusive Development
 <script>
 const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxhRiSqMppLHlB-sUkT0nHw4lbUuIHrDjAUFpX4XvlZd82XbW7-uipcO7w7D-aPJGxHLw/exec';
 
-document.getElementById('advisorForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
+// Flipping text functionality
+let isFlipped = false;
+setInterval(() => {
+    const flipText = document.getElementById('flipText');
+    if (flipText) {
+        isFlipped = !isFlipped;
+        flipText.textContent = isFlipped ? 'Anywhere' : 'Anytime';
+        flipText.style.transition = 'opacity 0.3s ease';
+    }
+}, 1000);
+
+// Booking form popup
+function openBookingForm() {
+    const modalHTML = `
+        <div id="bookingModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4">
+            <div class="bg-white rounded-lg shadow-2xl max-w-md w-full max-h-screen overflow-y-auto">
+                <div class="flex justify-between items-center p-6 border-b border-outline-variant">
+                    <h2 class="font-headline-sm text-headline-sm text-primary">Book an Appointment</h2>
+                    <button onclick="closeBookingForm()" class="text-on-surface-variant hover:text-on-surface">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <div id="bookingMessage"></div>
+                    <form id="bookingForm" class="space-y-4">
+                        <div>
+                            <label class="block font-label-md text-label-md text-on-surface-variant mb-1">Name</label>
+                            <input class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" placeholder="Your Name" type="text" name="name" required/>
+                        </div>
+                        <div>
+                            <label class="block font-label-md text-label-md text-on-surface-variant mb-1">Email</label>
+                            <input class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" placeholder="your@email.com" type="email" name="email" required/>
+                        </div>
+                        <div>
+                            <label class="block font-label-md text-label-md text-on-surface-variant mb-1">Contact Number</label>
+                            <input class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" placeholder="+91 99999 99999" type="tel" name="contact" required/>
+                        </div>
+                        <div>
+                            <label class="block font-label-md text-label-md text-on-surface-variant mb-1">Legal Issue</label>
+                            <textarea class="w-full px-4 py-3 bg-white border border-outline-variant focus:border-primary focus:ring-0 transition-all rounded-DEFAULT" placeholder="Describe your legal issue" name="issue" rows="4" required></textarea>
+                        </div>
+                        <button class="w-full bg-primary text-on-primary font-label-md text-label-md py-3 rounded-DEFAULT hover:bg-primary-container transition-all shadow-md flex items-center justify-center" type="submit" id="bookingSubmitBtn">Schedule Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    `;
     
-    const submitBtn = document.getElementById('submitBtn');
-    const originalText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting...';
+    const modalContainer = document.createElement('div');
+    modalContainer.innerHTML = modalHTML;
+    document.body.appendChild(modalContainer.firstElementChild);
     
-    const formData = new FormData(this);
-    const data = {
-        name: formData.get('name'),
-        contact: formData.get('contact'),
-        email: formData.get('email'),
-        requirement: formData.get('requirement'),
-        source: 'Advisor Page',
-        timestamp: new Date().toLocaleString()
-    };
-    
-    try {
-        const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
-            method: 'POST',
-            body: JSON.stringify(data)
-        });
+    document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
         
-        if (response.ok) {
-            document.getElementById('advisorForm').reset();
-            const successMsg = document.createElement('div');
-            successMsg.className = 'success-message';
-            successMsg.textContent = 'Thank you! Your application has been submitted successfully.';
-            successMsg.style.display = 'block';
-            document.getElementById('advisorForm').parentElement.insertBefore(successMsg, document.getElementById('advisorForm'));
+        const submitBtn = document.getElementById('bookingSubmitBtn');
+        const messageDiv = document.getElementById('bookingMessage');
+        const originalText = submitBtn.textContent;
+        
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="btn-loader"></span>Scheduling...';
+        
+        const formData = new FormData(this);
+        const data = {
+            name: formData.get('name'),
+            contact: formData.get('contact'),
+            email: formData.get('email'),
+            requirement: formData.get('issue'),
+            source: 'Advisor Page - Booking Form',
+            timestamp: new Date().toLocaleString()
+        };
+        
+        try {
+            const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(data)
+            });
             
-            setTimeout(() => {
-                successMsg.style.display = 'none';
-            }, 5000);
-        } else {
-            throw new Error('Form submission failed');
+            if (response.ok) {
+                document.getElementById('bookingForm').reset();
+                const successMsg = document.createElement('div');
+                successMsg.className = 'success-message';
+                successMsg.innerHTML = '<strong>Success!</strong> Your appointment request has been submitted successfully. We will contact you shortly.';
+                successMsg.style.display = 'block';
+                messageDiv.innerHTML = '';
+                messageDiv.appendChild(successMsg);
+                
+                setTimeout(() => {
+                    closeBookingForm();
+                }, 3000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'error-message';
+            errorMsg.innerHTML = '<strong>Error!</strong> Failed to submit your request. Please try again.';
+            errorMsg.style.display = 'block';
+            messageDiv.innerHTML = '';
+            messageDiv.appendChild(errorMsg);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
         }
-    } catch (error) {
-        console.error('Error:', error);
-        const errorMsg = document.createElement('div');
-        errorMsg.className = 'error-message';
-        errorMsg.textContent = 'Error submitting form. Please try again.';
-        errorMsg.style.display = 'block';
-        document.getElementById('advisorForm').parentElement.insertBefore(errorMsg, document.getElementById('advisorForm'));
-    } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
+    });
+}
+
+function closeBookingForm() {
+    const modal = document.getElementById('bookingModal');
+    if (modal) {
+        modal.remove();
+    }
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('bookingModal');
+    if (modal && event.target === modal) {
+        closeBookingForm();
     }
 });
 </script>
