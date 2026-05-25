@@ -162,24 +162,129 @@
 </head>
 <body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
 <!-- TopNavBar -->
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-lg">
-<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-28 max-w-[1200px] mx-auto">
-<a href="index.html" class="flex items-center hover:opacity-80 transition-opacity">
-<img alt="Blue Pine Logo" class="h-20 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"/>
-</a>
-</a>
-<!-- Desktop Nav -->
-<ul class="hidden md:flex items-center gap-10">
-<li><a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#home">Home</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#about">About</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#services">Our Services</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#contact">Contact</a></li>
-</ul>
-<div class="flex items-center gap-4">
-<button class="hidden md:flex items-center bg-primary text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-DEFAULT hover:bg-primary-container transition-all">Legal Advisor</button>
-<a href="consulting.html" class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md">Consulting</a>
-</div>
-</nav>
+<!-- Top Navigation -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-md">
+    <nav class="max-w-[1400px] mx-auto px-4 md:px-8">
+        
+        <div class="flex items-center justify-between h-20 md:h-24">
+
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center shrink-0">
+                <div class="bg-white rounded-xl shadow-md p-2 md:p-3">
+                    <img 
+                        alt="Blue Pine Logo"
+                        class="h-10 md:h-14 w-auto object-contain"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"
+                    />
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-10">
+
+                <ul class="flex items-center gap-8">
+                    <li>
+                        <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#home">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#about">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#services">
+                            Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#contact">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- CTA Buttons -->
+                <div class="flex items-center gap-4">
+
+                    <!-- Active Page -->
+                    <a href="advisor.html"
+                       class="bg-primary text-white px-5 py-2.5 rounded-md font-label-md text-label-md shadow-md">
+                        Legal Advisor
+                    </a>
+
+                    <!-- Secondary -->
+                    <a href="consulting.html"
+                       class="border border-primary text-primary px-5 py-2.5 rounded-md font-label-md text-label-md hover:bg-primary hover:text-white transition-all">
+                        Consulting
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button 
+                id="menuToggle"
+                class="md:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-outline-variant"
+            >
+                <span class="material-symbols-outlined text-primary">
+                    menu
+                </span>
+            </button>
+
+        </div>
+
+        <!-- Mobile Menu -->
+        <div 
+            id="mobileMenu"
+            class="hidden md:hidden pb-6 border-t border-outline-variant/20"
+        >
+
+            <div class="flex flex-col gap-4 pt-5">
+
+                <a href="#home"
+                   class="text-on-surface py-2 font-label-md">
+                    Home
+                </a>
+
+                <a href="#about"
+                   class="text-on-surface py-2 font-label-md">
+                    About
+                </a>
+
+                <a href="#services"
+                   class="text-on-surface py-2 font-label-md">
+                    Services
+                </a>
+
+                <a href="#contact"
+                   class="text-on-surface py-2 font-label-md">
+                    Contact
+                </a>
+
+                <div class="flex flex-col gap-3 pt-4">
+
+                    <a href="advisor.html"
+                       class="bg-primary text-white text-center py-3 rounded-md font-label-md">
+                        Legal Advisor
+                    </a>
+
+                    <a href="consulting.html"
+                       class="border border-primary text-primary text-center py-3 rounded-md font-label-md">
+                        Consulting
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
 </header>
 <main>
 <!-- Hero Section -->
@@ -487,7 +592,28 @@ document.addEventListener('click', function(event) {
         closeBookingForm();
     }
 });
-</script>
-</body></html>
+
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+        const icon = menuToggle.querySelector('.material-symbols-outlined');
+        if (icon) {
+            icon.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
+        }
+        menuToggle.setAttribute('aria-expanded', String(!mobileMenu.classList.contains('hidden')));
+    });
+}
+
+window.addEventListener('resize', function() {
+    if (window.innerWidth >= 768 && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        const icon = menuToggle?.querySelector('.material-symbols-outlined');
+        if (icon) icon.textContent = 'menu';
+        menuToggle?.setAttribute('aria-expanded', 'false');
+    }
+});
 </script>
 </body></html>
