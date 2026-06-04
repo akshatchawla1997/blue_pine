@@ -161,6 +161,17 @@
             max-height: 60vh;
             overflow-y: auto;
         }
+
+
+        #consulting-form-panel {
+    max-height: 60vh;
+    overflow-y: auto;
+    transition: opacity 0.3s ease;
+}
+
+#consulting-form-panel:hover {
+    opacity: 1 !important;
+}
     </style>
 </head>
 
@@ -591,6 +602,7 @@
             e.preventDefault();
 
             const submitBtn = document.getElementById('submitBtn');
+            
             const originalText = submitBtn.textContent;
             submitBtn.disabled = true;
             submitBtn.textContent = 'Submitting...';
@@ -659,7 +671,34 @@
                 menuToggle?.setAttribute('aria-expanded', 'false');
             }
        
-        });
+        })
+        
+        
+        
+        const formPanel = document.getElementById('consulting-form-panel');
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+
+    // Opacity decreases as user scrolls down
+    let opacity = 1 - (scrollTop / 800);
+
+    // Don't let it become completely invisible
+    opacity = Math.max(0.2, opacity);
+
+    formPanel.style.opacity = opacity;
+});
+
+// Full opacity on hover
+formPanel.addEventListener('mouseenter', () => {
+    formPanel.style.opacity = 1;
+});
+
+formPanel.addEventListener('mouseleave', () => {
+    let opacity = 1 - (window.scrollY / 800);
+    opacity = Math.max(0.2, opacity);
+    formPanel.style.opacity = opacity;
+});;
     </script>
 </body>
 
