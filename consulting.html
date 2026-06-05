@@ -307,56 +307,130 @@
                     data-alt="A grand, ultra-modern glass skyscraper reflecting a clear blue sky during the golden hour. The building's architectural sharp lines and steel framework symbolize stability and high-end real estate. The atmosphere is professional and prestigious, bathed in soft, warm sunlight that highlights the texture of the facade. The overall aesthetic is corporate, minimalist, and expensive, reflecting the elite nature of Blue Pine Consulting."
                     src="public/consulting_img.png" />
             </div>
+            
             <div
-                class="relative z-10 w-full max-w-[1200px] px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-gutter items-start py-section-padding-sm">
-                <div class="text-white space-y-6">
-                    <h1 class="font-headline-xl text-headline-xl text-white">We Deal Only in the Top 3 Residential
-                        Projects </h1>
+                class="relative z-10 w-full max-w-[1280px] px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-section-padding-sm min-h-screen">
+
+                <!-- LEFT CONTENT -->
+                <div class="text-white space-y-8">
+
+                    <h1 class="max-w-[12ch] text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02]
+                        [text-shadow:0_4px_18px_rgba(0,0,0,0.45)]
+                        [-webkit-text-stroke:1px_rgba(10,61,122,0.45)]">
+
+                        We Deal Only in the Top 3 Residential Projects
+
+                    </h1>
+
+                    <p class="max-w-xl text-white/85 text-base md:text-lg leading-8 font-light">
+                        Premium real estate advisory focused on high-value residential investments,
+                        curated exclusively for discerning buyers and strategic investors.
+                    </p>
 
                 </div>
-                <!-- Lead Gen Form -->
-                <div class="max-w-[22rem] w-full ml-auto lg:min-h-[19rem]">
-                <div
-                    id="consulting-form-panel"
-                    class="bg-surface-container-lowest p-4 sm:p-5 rounded-xl border border-outline-variant shadow-lg max-w-[22rem] w-full">
-                    <h2 class="font-headline-sm text-lg leading-tight text-primary mb-4">Secure Your Strategy</h2>
-                    <form id="consultingForm" class="space-y-3">
-                        <div class="space-y-0.5">
-                            <label class="text-xs font-semibold tracking-wide text-on-surface-variant">Name</label>
-                            <input
-                                class="w-full px-2.5 py-2 text-sm bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface"
-                                placeholder="Your full name" type="text" name="name" required />
-                        </div>
-                        <div class="space-y-0.5">
-                            <label class="text-xs font-semibold tracking-wide text-on-surface-variant">Contact Number</label>
-                            <input
-                                class="w-full px-2.5 py-2 text-sm bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface"
-                                placeholder="+91 99999 99999" type="tel" name="contact" required />
-                        </div>
-                        <div class="space-y-0.5">
-                            <label class="text-xs font-semibold tracking-wide text-on-surface-variant">Email ID</label>
-                            <input
-                                class="w-full px-2.5 py-2 text-sm bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface"
-                                placeholder="corporate@domain.com" type="email" name="email" required />
-                        </div>
-                        <div class="space-y-0.5">
-                            <label class="text-xs font-semibold tracking-wide text-on-surface-variant">Requirement</label>
-                            <select
-                                class="w-full px-2.5 py-2 text-sm bg-surface border border-outline-variant rounded focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface appearance-none"
-                                name="requirement" required>
-                                <option value="">Select a requirement</option>
 
-                                <option>2BHK</option>
-                                <option>3BHK</option>
-                                <option>4BHK</option>
-                            </select>
-                        </div>
-                        <button
-                            class="w-full bg-primary text-on-primary py-2.5 text-xs font-semibold rounded uppercase tracking-widest hover:bg-primary-container transition-all mt-2"
-                            type="submit" id="submitBtn">Submit Inquiry</button>
-                    </form>
+                <!-- RIGHT FORM -->
+                <div class="w-full flex justify-center lg:justify-end items-center">
+
+                    <div
+                        id="consulting-form-panel"
+                        class="bg-white/65 hover:bg-white/95 backdrop-blur-sm transition-all duration-500
+                            p-5 sm:p-6 rounded-2xl border border-white/30 shadow-2xl
+                            max-w-[24rem] w-full">
+
+                        <h2 class="font-headline-sm text-2xl text-primary mb-5 leading-tight">
+                            Secure Your Strategy
+                        </h2>
+
+                        <form id="consultingForm" class="space-y-4 overflow-visible">
+
+                            <!-- Name -->
+                            <div class="space-y-1">
+                                <label class="text-xs font-semibold tracking-wide text-on-surface-variant uppercase">
+                                    Name
+                                </label>
+
+                                <input
+                                    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant
+                                        rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary
+                                        transition-all outline-none text-on-surface"
+                                    placeholder="Your full name"
+                                    type="text"
+                                    name="name"
+                                    required />
+                            </div>
+
+                            <!-- Contact -->
+                            <div class="space-y-1">
+                                <label class="text-xs font-semibold tracking-wide text-on-surface-variant uppercase">
+                                    Contact Number
+                                </label>
+
+                                <input
+                                    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant
+                                        rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary
+                                        transition-all outline-none text-on-surface"
+                                    placeholder="+91 99999 99999"
+                                    type="tel"
+                                    name="contact"
+                                    required />
+                            </div>
+
+                            <!-- Email -->
+                            <div class="space-y-1">
+                                <label class="text-xs font-semibold tracking-wide text-on-surface-variant uppercase">
+                                    Email ID
+                                </label>
+
+                                <input
+                                    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant
+                                        rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary
+                                        transition-all outline-none text-on-surface"
+                                    placeholder="corporate@domain.com"
+                                    type="email"
+                                    name="email"
+                                    required />
+                            </div>
+
+                            <!-- Requirement -->
+                            <div class="space-y-1">
+                                <label class="text-xs font-semibold tracking-wide text-on-surface-variant uppercase">
+                                    Requirement
+                                </label>
+
+                                <select
+                                    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant
+                                        rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary
+                                        transition-all outline-none text-on-surface appearance-none"
+                                    name="requirement"
+                                    required>
+
+                                    <option value="">Select a requirement</option>
+                                    <option>2BHK</option>
+                                    <option>3BHK</option>
+                                    <option>4BHK</option>
+
+                                </select>
+                            </div>
+
+                            <!-- Button -->
+                            <button
+                                class="w-full bg-primary text-on-primary py-3 text-sm font-semibold rounded-lg
+                                    uppercase tracking-[0.18em] hover:bg-primary-container
+                                    hover:scale-[1.02] transition-all duration-300 mt-3 shadow-lg"
+                                type="submit"
+                                id="submitBtn">
+
+                                Submit Inquiry
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
                 </div>
-                </div>
+
             </div>
         </section>
          <!-- Services Section -->
