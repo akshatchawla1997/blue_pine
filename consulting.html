@@ -148,24 +148,26 @@
         @media (min-width: 1024px) {
             #consulting-form-panel {
                 position: fixed;
-                top: 6rem;
+                top: 8rem;
+                right: 40px;
                 z-index: 40;
                 max-width: 22rem;
-                max-height: 60vh;
-                width: min(22rem, calc((min(100vw, 1200px) - 160px - 24px) / 2));
-                right: max(80px, calc((100vw - min(100vw, 1200px)) / 2 + 80px));
+                width: 22rem;
+                /* max-height: 60vh; */
+                /* width: min(22rem, calc((min(100vw, 1200px) - 160px - 24px) / 2));
+                right: max(80px, calc((100vw - min(100vw, 1200px)) / 2 + 80px)); */
             }
         }
 
-        #consulting-form-panel {
+        /* #consulting-form-panel {
             max-height: 60vh;
-            overflow-y: auto;
-        }
+            overflow: auto;
+        } */
 
 
         #consulting-form-panel {
-    max-height: 60vh;
-    overflow-y: auto;
+    /* max-height: 60vh;
+    overflow-y: auto; */
     transition: opacity 0.3s ease;
 }
 
@@ -197,7 +199,7 @@
                     <ul class="flex items-center gap-8">
                         <li>
                             <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
-                                href="#home">
+                                href="index.html">
                                 Home
                             </a>
                         </li>
@@ -262,7 +264,7 @@
 
                 <div class="flex flex-col gap-4 pt-5">
 
-                    <a href="#home" class="text-on-surface py-2 font-label-md">
+                    <a href="index.html" class="text-on-surface py-2 font-label-md">
                         Home
                     </a>
                     <a href="#contact" class="text-on-surface py-2 font-label-md">
@@ -306,6 +308,7 @@
                 <img class="w-full h-full object-cover"
                     data-alt="A grand, ultra-modern glass skyscraper reflecting a clear blue sky during the golden hour. The building's architectural sharp lines and steel framework symbolize stability and high-end real estate. The atmosphere is professional and prestigious, bathed in soft, warm sunlight that highlights the texture of the facade. The overall aesthetic is corporate, minimalist, and expensive, reflecting the elite nature of Blue Pine Consulting."
                     src="public/consulting_img.png" />
+                    <div class="absolute inset-0 hero-overlay"></div>
             </div>
             
             <div
@@ -336,7 +339,7 @@
                         id="consulting-form-panel"
                         class="bg-white/65 hover:bg-white/95 backdrop-blur-sm transition-all duration-500
                             p-5 sm:p-6 rounded-2xl border border-white/30 shadow-2xl
-                            max-w-[24rem] w-full">
+                            max-w-[17rem] w-full">
 
                         <h2 class="font-headline-sm text-2xl text-primary mb-5 leading-tight">
                             Secure Your Strategy
@@ -345,72 +348,41 @@
                         <form id="consultingForm" class="space-y-4 overflow-visible">
 
                             <!-- Name -->
+                            
                             <div class="space-y-1">
-                                <label class="text-xs font-semibold tracking-wide text-on-surface-variant uppercase">
-                                    Name
-                                </label>
+                      <input
+    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none"
+    placeholder="Enter Your Name"
+    type="text"
+    name="name"
+    required />
 
-                                <input
-                                    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant
-                                        rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary
-                                        transition-all outline-none text-on-surface"
-                                    placeholder="Your full name"
-                                    type="text"
-                                    name="name"
-                                    required />
-                            </div>
+<!-- Contact -->
+<input
+    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none"
+    placeholder="Enter Contact Number"
+    type="tel"
+    name="contact"
+    required />
 
-                            <!-- Contact -->
-                            <div class="space-y-1">
-                                <label class="text-xs font-semibold tracking-wide text-on-surface-variant uppercase">
-                                    Contact Number
-                                </label>
+<!-- Email -->
+<input
+    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none"
+    placeholder="Enter Email Address"
+    type="email"
+    name="email"
+    required />
 
-                                <input
-                                    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant
-                                        rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary
-                                        transition-all outline-none text-on-surface"
-                                    placeholder="+91 99999 99999"
-                                    type="tel"
-                                    name="contact"
-                                    required />
-                            </div>
-
-                            <!-- Email -->
-                            <div class="space-y-1">
-                                <label class="text-xs font-semibold tracking-wide text-on-surface-variant uppercase">
-                                    Email ID
-                                </label>
-
-                                <input
-                                    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant
-                                        rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary
-                                        transition-all outline-none text-on-surface"
-                                    placeholder="corporate@domain.com"
-                                    type="email"
-                                    name="email"
-                                    required />
-                            </div>
-
-                            <!-- Requirement -->
-                            <div class="space-y-1">
-                                <label class="text-xs font-semibold tracking-wide text-on-surface-variant uppercase">
-                                    Requirement
-                                </label>
-
-                                <select
-                                    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant
-                                        rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary
-                                        transition-all outline-none text-on-surface appearance-none"
-                                    name="requirement"
-                                    required>
-
-                                    <option value="">Select a requirement</option>
-                                    <option>2BHK</option>
-                                    <option>3BHK</option>
-                                    <option>4BHK</option>
-
-                                </select>
+<!-- Requirement -->
+<select
+    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none appearance-none"
+    name="requirement"
+    required>
+    <option value="">Select Requirement</option>
+    <option>2BHK</option>
+    <option>3BHK</option>
+    <option>4BHK</option>
+</select>
                             </div>
 
                             <!-- Button -->
@@ -440,7 +412,7 @@
                     <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Our Services</h2>
                     <div class="mx-auto h-1 w-20 rounded-full bg-tertiary-fixed-dim"></div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div
                         class="rounded-[32px] border border-outline-variant bg-surface p-10 shadow-sm transition-all hover:shadow-xl hover:-translate-y-1">
                         <!-- <div class="text-primary mb-6 transition-transform duration-300 group-hover:scale-110">
@@ -541,7 +513,7 @@
                             Our mission is to create exceptional living experiences through premium developments that blend luxury, comfort, and sustainability. Backed by professional expertise and a customer-first approach, we strive to build lasting relationships and deliver excellence in every project we represent.
                         </p>
                         <p>
-                            At Blue Pine, we don’t just sell homes — we help you discover a lifestyle.
+                            At Blue Pine, we do not just sell homes — we help you discover a lifestyle.
                         </p>
                     </div>
                 </div>
@@ -550,7 +522,7 @@
                         class="aspect-[4/5] bg-surface-container-high rounded-3xl overflow-hidden shadow-lg border border-outline-variant">
                         <img class="w-full h-full object-cover",
                             data-alt="A group of diverse, professional consultants in tailored navy and charcoal suits engaged in a serious discussion around a sleek, polished mahogany boardroom table. The background is a blurred cityscape visible through floor-to-ceiling windows. The lighting is cold, clean, and bright, emphasizing a corporate environment of intelligence and focus. The shot is an architectural, editorial composition that feels authoritative and trustworthy."
-                            src="public/dealer.png" />
+                            src="public/estae.png" />
                     </div>
                 </div>
             </div>
@@ -758,7 +730,7 @@ window.addEventListener('scroll', () => {
     let opacity = 1 - (scrollTop / 800);
 
     // Don't let it become completely invisible
-    opacity = Math.max(0.2, opacity);
+    opacity = Math.max(0.7, opacity);
 
     formPanel.style.opacity = opacity;
 });
@@ -770,7 +742,7 @@ formPanel.addEventListener('mouseenter', () => {
 
 formPanel.addEventListener('mouseleave', () => {
     let opacity = 1 - (window.scrollY / 800);
-    opacity = Math.max(0.2, opacity);
+    opacity = Math.max(0.7, opacity);
     formPanel.style.opacity = opacity;
 });;
     </script>
