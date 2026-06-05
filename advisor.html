@@ -1,489 +1,957 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Blue Pine | Luxury Residential Real Estate Advisory</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blue Pine | Luxury Residential Real Estate Advisory</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .hero-gradient {
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 38, 98, 0.4),
+          rgba(0, 38, 98, 0.6)
+        );
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+      }
+      .success-message {
+        background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+        color: #155724;
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        display: none;
+        border-left: 4px solid #28a745;
+        box-shadow: 0 2px 8px rgba(40, 167, 69, 0.15);
+        animation: slideIn 0.3s ease-out;
+      }
+      .error-message {
+        background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+        color: #721c24;
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        display: none;
+        border-left: 4px solid #dc3545;
+        box-shadow: 0 2px 8px rgba(220, 53, 69, 0.15);
+        animation: slideIn 0.3s ease-out;
+      }
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
         }
-        .hero-gradient {
-            background: linear-gradient(to bottom, rgba(0, 38, 98, 0.4), rgba(0, 38, 98, 0.6));
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+      }
+      .btn-loader {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
         }
-        .success-message {
-            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-            color: #155724;
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            display: none;
-            border-left: 4px solid #28a745;
-            box-shadow: 0 2px 8px rgba(40, 167, 69, 0.15);
-            animation: slideIn 0.3s ease-out;
-        }
-        .error-message {
-            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
-            color: #721c24;
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            display: none;
-            border-left: 4px solid #dc3545;
-            box-shadow: 0 2px 8px rgba(220, 53, 69, 0.15);
-            animation: slideIn 0.3s ease-out;
-        }
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .btn-loader {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin-right: 8px;
-            vertical-align: middle;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+      }
     </style>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-tertiary-container": "#cca65f",
-                        "error": "#ba1a1a",
-                        "on-primary-fixed": "#001945",
-                        "on-tertiary-fixed-variant": "#5d4201",
-                        "inverse-on-surface": "#eef1f3",
-                        "on-secondary-fixed": "#111c2c",
-                        "on-background": "#181c1e",
-                        "inverse-primary": "#b0c6ff",
-                        "secondary-fixed-dim": "#bcc7dd",
-                        "tertiary-container": "#553c00",
-                        "on-surface-variant": "#434652",
-                        "on-error-container": "#93000a",
-                        "inverse-surface": "#2d3133",
-                        "surface-tint": "#325baf",
-                        "secondary-fixed": "#d8e3fa",
-                        "tertiary": "#392700",
-                        "primary-container": "#003b8e",
-                        "primary": "#002662",
-                        "secondary-container": "#d5e0f7",
-                        "surface-container-high": "#e5e9eb",
-                        "on-tertiary-fixed": "#261900",
-                        "on-primary-fixed-variant": "#104295",
-                        "surface": "#f7fafc",
-                        "on-secondary": "#ffffff",
-                        "outline-variant": "#c3c6d3",
-                        "on-secondary-fixed-variant": "#3c475a",
-                        "surface-container-low": "#f1f4f6",
-                        "tertiary-fixed": "#ffdea5",
-                        "surface-variant": "#e0e3e5",
-                        "on-tertiary": "#ffffff",
-                        "primary-fixed-dim": "#b0c6ff",
-                        "outline": "#747783",
-                        "error-container": "#ffdad6",
-                        "surface-dim": "#d7dadc",
-                        "on-error": "#ffffff",
-                        "primary-fixed": "#d9e2ff",
-                        "on-primary-container": "#86aaff",
-                        "surface-container-highest": "#e0e3e5",
-                        "background": "#f7fafc",
-                        "on-surface": "#181c1e",
-                        "on-secondary-container": "#586377",
-                        "surface-container": "#ebeef0",
-                        "secondary": "#545f72",
-                        "tertiary-fixed-dim": "#e9c176",
-                        "surface-bright": "#f7fafc",
-                        "on-primary": "#ffffff",
-                        "surface-container-lowest": "#ffffff"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "margin-desktop": "80px",
-                        "margin-mobile": "20px",
-                        "gutter": "24px",
-                        "section-padding-lg": "120px",
-                        "section-padding-sm": "64px"
-                    },
-                    "fontFamily": {
-                        "label-sm": ["Hanken Grotesk"],
-                        "headline-lg": ["Libre Caslon Text"],
-                        "headline-lg-mobile": ["Libre Caslon Text"],
-                        "label-md": ["Hanken Grotesk"],
-                        "headline-md": ["Libre Caslon Text"],
-                        "body-lg": ["Hanken Grotesk"],
-                        "body-md": ["Hanken Grotesk"],
-                        "headline-xl": ["Libre Caslon Text"],
-                        "headline-sm": ["Libre Caslon Text"]
-                    },
-                    "fontSize": {
-                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
-                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "headline-xl": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
-                    }
-                }
-            }
-        }
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#cca65f",
+              error: "#ba1a1a",
+              "on-primary-fixed": "#001945",
+              "on-tertiary-fixed-variant": "#5d4201",
+              "inverse-on-surface": "#eef1f3",
+              "on-secondary-fixed": "#111c2c",
+              "on-background": "#181c1e",
+              "inverse-primary": "#b0c6ff",
+              "secondary-fixed-dim": "#bcc7dd",
+              "tertiary-container": "#553c00",
+              "on-surface-variant": "#434652",
+              "on-error-container": "#93000a",
+              "inverse-surface": "#2d3133",
+              "surface-tint": "#325baf",
+              "secondary-fixed": "#d8e3fa",
+              tertiary: "#392700",
+              "primary-container": "#003b8e",
+              primary: "#002662",
+              "secondary-container": "#d5e0f7",
+              "surface-container-high": "#e5e9eb",
+              "on-tertiary-fixed": "#261900",
+              "on-primary-fixed-variant": "#104295",
+              surface: "#f7fafc",
+              "on-secondary": "#ffffff",
+              "outline-variant": "#c3c6d3",
+              "on-secondary-fixed-variant": "#3c475a",
+              "surface-container-low": "#f1f4f6",
+              "tertiary-fixed": "#ffdea5",
+              "surface-variant": "#e0e3e5",
+              "on-tertiary": "#ffffff",
+              "primary-fixed-dim": "#b0c6ff",
+              outline: "#747783",
+              "error-container": "#ffdad6",
+              "surface-dim": "#d7dadc",
+              "on-error": "#ffffff",
+              "primary-fixed": "#d9e2ff",
+              "on-primary-container": "#86aaff",
+              "surface-container-highest": "#e0e3e5",
+              background: "#f7fafc",
+              "on-surface": "#181c1e",
+              "on-secondary-container": "#586377",
+              "surface-container": "#ebeef0",
+              secondary: "#545f72",
+              "tertiary-fixed-dim": "#e9c176",
+              "surface-bright": "#f7fafc",
+              "on-primary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "margin-desktop": "80px",
+              "margin-mobile": "20px",
+              gutter: "24px",
+              "section-padding-lg": "120px",
+              "section-padding-sm": "64px",
+            },
+            fontFamily: {
+              "label-sm": ["Hanken Grotesk"],
+              "headline-lg": ["Libre Caslon Text"],
+              "headline-lg-mobile": ["Libre Caslon Text"],
+              "label-md": ["Hanken Grotesk"],
+              "headline-md": ["Libre Caslon Text"],
+              "body-lg": ["Hanken Grotesk"],
+              "body-md": ["Hanken Grotesk"],
+              "headline-xl": ["Libre Caslon Text"],
+              "headline-sm": ["Libre Caslon Text"],
+            },
+            fontSize: {
+              "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "headline-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg-mobile": [
+                "32px",
+                { lineHeight: "40px", fontWeight: "600" },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "32px",
+                { lineHeight: "40px", fontWeight: "600" },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "headline-xl": [
+                "60px",
+                {
+                  lineHeight: "72px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-sm": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
-<!-- TopNavBar -->
-<!-- Top Navigation -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-md">
-    <nav class="max-w-[1400px] mx-auto px-4 md:px-8">
-        
+  </head>
+  <body
+    class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed"
+  >
+    <!-- TopNavBar -->
+    <!-- Top Navigation -->
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-md"
+    >
+      <nav class="max-w-[1400px] mx-auto px-4 md:px-8">
         <div class="flex items-center justify-between h-20 md:h-24">
-
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center shrink-0">
-                <div class="bg-white rounded-xl shadow-md overflow-hidden w-14 h-14 md:w-16 md:h-16">
-                    <img 
-                        alt="Blue Pine Logo"
-                        class="w-full h-full object-cover scale-110"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"
-                    />
-                </div>
-            </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-10">
-
-                <ul class="flex items-center gap-8">
-                    <li>
-                        <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#home">
-                            Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#about">
-                            About
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#services">
-                            Services
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#contact">
-                            Contact
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- CTA Buttons -->
-                <div class="flex items-center gap-4">
-
-                    <!-- Active Page -->
-                    <a href="advisor.html"
-                       class="bg-primary text-white px-5 py-2.5 rounded-md font-label-md text-label-md shadow-md">
-                        Legal Advisor
-                    </a>
-
-                    <!-- Secondary -->
-                    <a href="consulting.html"
-                       class="border border-primary text-primary px-5 py-2.5 rounded-md font-label-md text-label-md hover:bg-primary hover:text-white transition-all">
-                        Consulting
-                    </a>
-
-                </div>
-            </div>
-
-            <!-- Mobile Hamburger -->
-            <button 
-                id="menuToggle"
-                class="md:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-outline-variant"
+          <!-- Logo -->
+          <a href="index.html" class="flex items-center shrink-0">
+            <div
+              class="bg-white rounded-xl shadow-md overflow-hidden w-14 h-14 md:w-16 md:h-16"
             >
-                <span class="material-symbols-outlined text-primary">
-                    menu
-                </span>
-            </button>
+              <img
+                alt="Blue Pine Logo"
+                class="w-full h-full object-cover scale-110"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"
+              />
+            </div>
+          </a>
 
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center gap-10">
+            <ul class="flex items-center gap-8">
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                  href="index.html"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                  href="#services"
+                >
+                  Services
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                  href="#about"
+                >
+                  About
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                  href="#contact"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+
+            <!-- CTA Buttons -->
+            <div class="flex items-center gap-4">
+              <!-- Active Page -->
+              <a
+                href="advisor.html"
+                class="bg-primary text-white px-5 py-2.5 rounded-md font-label-md text-label-md shadow-md"
+              >
+                Legal Advisor
+              </a>
+
+              <!-- Secondary -->
+              <a
+                href="consulting.html"
+                class="border border-primary text-primary px-5 py-2.5 rounded-md font-label-md text-label-md hover:bg-primary hover:text-white transition-all"
+              >
+                Consulting
+              </a>
+            </div>
+          </div>
+
+          <!-- Mobile Hamburger -->
+          <button
+            id="menuToggle"
+            class="md:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-outline-variant"
+          >
+            <span class="material-symbols-outlined text-primary"> menu </span>
+          </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div 
-            id="mobileMenu"
-            class="hidden md:hidden pb-6 border-t border-outline-variant/20"
+        <div
+          id="mobileMenu"
+          class="hidden md:hidden pb-6 border-t border-outline-variant/20"
         >
+          <div class="flex flex-col gap-4 pt-5">
+            <a href="index.html" class="text-on-surface py-2 font-label-md">
+              Home
+            </a>
 
-            <div class="flex flex-col gap-4 pt-5">
+            <a href="#about" class="text-on-surface py-2 font-label-md">
+              About
+            </a>
 
-                <a href="#home"
-                   class="text-on-surface py-2 font-label-md">
-                    Home
-                </a>
+            <a href="#services" class="text-on-surface py-2 font-label-md">
+              Services
+            </a>
 
-                <a href="#about"
-                   class="text-on-surface py-2 font-label-md">
-                    About
-                </a>
+            <a href="#contact" class="text-on-surface py-2 font-label-md">
+              Contact
+            </a>
 
-                <a href="#services"
-                   class="text-on-surface py-2 font-label-md">
-                    Services
-                </a>
+            <div class="flex flex-col gap-3 pt-4">
+              <a
+                href="advisor.html"
+                class="bg-primary text-white text-center py-3 rounded-md font-label-md"
+              >
+                Legal Advisor
+              </a>
 
-                <a href="#contact"
-                   class="text-on-surface py-2 font-label-md">
-                    Contact
-                </a>
+              <a
+                href="consulting.html"
+                class="border border-primary text-primary text-center py-3 rounded-md font-label-md"
+              >
+                Consulting
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="relative min-h-screen flex items-center justify-center pt-20"
+        id="home"
+      >
+        <!-- Background Image Placeholder (representing a slider) -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+          <img
+            alt="Luxury Estate"
+            class="w-full h-full object-cover"
+            data-alt="A sprawling contemporary luxury estate captured at dusk, featuring expansive floor-to-ceiling windows that glow with warm interior light. The architecture is sharp and architectural, nestled within a lush, manicured landscape with a pristine swimming pool in the foreground reflecting the deep blue twilight sky. The overall aesthetic is one of exclusive tranquility and high-end architectural precision, emphasizing premium materials and sophisticated evening lighting."
+            src="public/legal_advisor.png"
+          />
+          <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        <div
+          class="relative z-10 w-full max-w-[1200px] px-margin-mobile md:px-margin-desktop flex flex-col lg:flex-row items-center gap-12 py-section-padding-sm"
+        >
+          <div class="lg:w-1/2 text-center lg:text-left text-on-primary">
+            <h1 class="font-headline-xl text-headline-xl mb-6 leading-tight">
+              For legal issues<br /><span
+                id="flipText"
+                class="inline-block min-w-[200px] mt-4 text-white font-bold transform transition-all duration-300 opacity-100"
+                >Anytime</span
+              >
+            </h1>
+            <p
+              class="font-body-lg text-body-lg opacity-90 max-w-lg mx-auto lg:mx-0 mt-8"
+            >
+              Professional legal advisory available round the clock
+            </p>
+            <button
+              class="mt-8 bg-primary text-on-primary font-label-md text-label-md px-8 py-3 rounded-DEFAULT hover:bg-primary-container transition-all shadow-md"
+              onclick="openBookingForm()"
+            >
+              Book Appointment
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- About Section -->
+      <section class="py-section-padding-lg bg-surface" id="about">
+        <div
+          class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop"
+        >
+          <div class="flex flex-col lg:flex-row gap-12 items-start">
+            <!-- Photo Column -->
+            <div class="lg:w-[30%]">
+              <div
+                class="w-full max-w-[320px] mx-auto bg-surface-container-high rounded-xl overflow-hidden shadow-lg border border-outline-variant"
+              >
+                <img
+                  src="public/p.n. parashar.jpeg"
+                  alt="P.N Parashar"
+                  class="w-full h-auto object-cover"
+                />
+              </div>
 
-                <div class="flex flex-col gap-3 pt-4">
-
-                    <a href="advisor.html"
-                       class="bg-primary text-white text-center py-3 rounded-md font-label-md">
-                        Legal Advisor
-                    </a>
-
-                    <a href="consulting.html"
-                       class="border border-primary text-primary text-center py-3 rounded-md font-label-md">
-                        Consulting
-                    </a>
-
-                </div>
-
+              <div class="mt-8 text-center">
+                <h4 class="font-headline-sm text-headline-sm text-primary mb-2">
+                  55+
+                </h4>
+                <p class="font-label-md text-label-md">
+                  Years of Legal Experience
+                </p>
+              </div>
             </div>
 
+            <!-- Content Column -->
+            <div class="lg:w-[70%]">
+              <span
+                class="text-on-tertiary-container font-label-md text-label-md tracking-widest uppercase mb-4 block"
+              >
+                Our Advisor
+              </span>
+
+              <h2 class="font-headline-lg text-headline-lg text-primary mb-8">
+                Mr. Prem Narayan Parashar
+              </h2>
+
+              <div class="space-y-6 text-on-surface-variant font-body-lg">
+                <p>
+                  Mr. Prem Narayan Parashar is a highly respected legal
+                  professional with over 55 years of distinguished experience in
+                  the legal, judicial, tax and corporate sectors and is widely
+                  recognized as a legal luminary, scholar, writer, speaker, and
+                  consultant.
+                </p>
+
+                <p>
+                  His legal journey began at Aligarh Muslim University, where he
+                  secured First Position and Gold Medals in both LL.B. and LL.M
+                  courses. Following his academic achievements, he served as a
+                  Lecturer in the Faculty of Law.
+                </p>
+
+                <p>
+                  In 1972, Mr. Parashar secured the First Position in the Uttar
+                  Pradesh Judicial Services Examination, marking the beginning
+                  of an illustrious judicial and legal career.
+                </p>
+
+                <p>
+                  Throughout his career, he has held several prestigious
+                  positions, including Judicial Member of ITAT, CAT, and Member
+                  of the Competition Commission of India.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Remaining Content Full Width -->
+          <div class="mt-12 space-y-6 text-on-surface-variant font-body-lg">
+            <p>
+              He has also been associated with numerous academic, judicial, and
+              professional institutions, contributing extensively to legal
+              reforms, administration, and policy matters. Mr. Parashar has been
+              actively practicing law for several decades, with expertise across
+              diverse areas including matrimonial law, corporate matters,
+              banking law, service matters, taxation, and civil litigation.
+            </p>
+
+            <p>
+              His practice extends before the Supreme Court of India, High
+              Courts, Tribunals, and various judicial forums. As Founder and
+              Senior Legal Consultant of Parashar & Parashar Law Firm, he has
+              provided legal opinions, strategic advice, and consultancy
+              services to prominent corporations, institutions, and
+              organizations.
+            </p>
+
+            <p>
+              Mr. Parashar has delivered lectures and presentations at numerous
+              national and international platforms on various legal subjects.
+              His remarkable career stands as a testimony to dedication,
+              professionalism, and unwavering commitment to justice and legal
+              excellence.
+            </p>
+          </div>
         </div>
+      </section>
+      <!-- Services Section -->
+      <section
+        class="py-section-padding-lg bg-on-background text-surface overflow-hidden"
+        id="services"
+      >
+        <div
+          class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop"
+        >
+          <div class="text-center mb-20">
+            <h2 class="font-headline-lg text-headline-lg mb-6">Services</h2>
+            <p class="max-w-2xl mx-auto opacity-70 font-body-lg">
+              Comprehensive consulting services tailored to the acquisition,
+              valuation, and management of ultra-premium residential assets.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Service Card 1 -->
+            <div
+              class="group border border-outline/30 p-10 hover:bg-surface-container-lowest hover:text-on-surface transition-all duration-500"
+            >
+              <div
+                class="mb-8 inline-block p-4 bg-primary-container rounded-lg group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary"
+                  data-icon="real_estate_agent"
+                  >real_estate_agent</span
+                >
+              </div>
+              <h3 class="font-headline-sm text-headline-sm mb-4">
+                Matrimonial Lawyer
+              </h3>
+              <p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">
+                Guiding families through life toughest transitions with expert
+                legal strategy and unwavering empathy..
+              </p>
+              <a
+                class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary"
+                href="#"
+              >
+                Learn More
+                <span
+                  class="material-symbols-outlined text-sm"
+                  data-icon="arrow_forward"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+            <!-- Service Card 2 -->
+            <div
+              class="group border border-outline/30 p-10 hover:bg-surface-container-lowest hover:text-on-surface transition-all duration-500"
+            >
+              <div
+                class="mb-8 inline-block p-4 bg-primary-container rounded-lg group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary"
+                  data-icon="analytics"
+                  >analytics</span
+                >
+              </div>
+              <h3 class="font-headline-sm text-headline-sm mb-4">
+                Corporate Lawyer
+              </h3>
+              <p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">
+                Corporate Legal Services for Contracts, Compliance & Business
+                Protection.
+              </p>
+              <a
+                class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary"
+                href="#"
+              >
+                Learn More
+                <span
+                  class="material-symbols-outlined text-sm"
+                  data-icon="arrow_forward"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
 
-    </nav>
-</header>
-<main>
-<!-- Hero Section -->
-<section class="relative min-h-screen flex items-center justify-center pt-20" id="home">
-<!-- Background Image Placeholder (representing a slider) -->
-<div class="absolute inset-0 z-0 overflow-hidden">
-<img alt="Luxury Estate" class="w-full h-full object-cover" data-alt="A sprawling contemporary luxury estate captured at dusk, featuring expansive floor-to-ceiling windows that glow with warm interior light. The architecture is sharp and architectural, nestled within a lush, manicured landscape with a pristine swimming pool in the foreground reflecting the deep blue twilight sky. The overall aesthetic is one of exclusive tranquility and high-end architectural precision, emphasizing premium materials and sophisticated evening lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ_s2OHIwfoMSS_4MkXgkBE9Lpavd3aU7Gtgl9HBhxIOb2Jv2JSNl8fTisHriEQBmqcLdP3c3v2lcWiDesRSyNcc0lnDY3tB2KTzWOy7bc7dehxzIn5ORU4mLGOKffHdd7bgFYQ0B5hjLGIOdauA1Ql9IwV5_5BNL0cyKF92hFdRQ66HxMbr1ieuNBKVJ0hAE_oqXJXsqr9pF67O1fykq1S5IW-S3468Djau0F_haslYGGJL25mJOYUsGui3_-1mrVha84TSCfMFA"/>
-<div class="absolute inset-0 hero-gradient"></div>
-    </div>
-<div class="relative z-10 w-full max-w-[1200px] px-margin-mobile md:px-margin-desktop flex flex-col lg:flex-row items-center gap-12 py-section-padding-sm">
-<div class="lg:w-1/2 text-center lg:text-left text-on-primary">
-<h1 class="font-headline-xl text-headline-xl mb-6 leading-tight">For legal issues<br/><span id="flipText" class="inline-block min-w-[200px] mt-4 text-white font-bold transform transition-all duration-300 opacity-100">Anytime</span></h1>
-<p class="font-body-lg text-body-lg opacity-90 max-w-lg mx-auto lg:mx-0 mt-8">Professional legal advisory available round the clock</p>
-<button class="mt-8 bg-primary text-on-primary font-label-md text-label-md px-8 py-3 rounded-DEFAULT hover:bg-primary-container transition-all shadow-md" onclick="openBookingForm()">Book Appointment</button>
-</div>
-</div>
-</section>
-<!-- About Section -->
-<section class="py-section-padding-lg bg-surface" id="about">
-<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="flex flex-col lg:flex-row gap-20 items-center">
-<div class="lg:w-1/2 relative">
-<div class="aspect-[4/5] bg-surface-container-high rounded-xl overflow-hidden shadow-lg border border-outline-variant">
-<img alt="P.N Parashar" class="w-full h-full object-cover" src="public/p.n. parashar.jpeg"/>
-</div>
+            <!-- Service Card 3 -->
+            <div
+              class="group border border-outline/30 p-10 hover:bg-surface-container-lowest hover:text-on-surface transition-all duration-500"
+            >
+              <div
+                class="mb-8 inline-block p-4 bg-primary-container rounded-lg group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary"
+                >
+                  gavel
+                </span>
+              </div>
 
-</div>
-<div class="lg:w-1/2">
-<span class="text-on-tertiary-container font-label-md text-label-md tracking-widest uppercase mb-4 block">Our Advisor</span>
-<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Mr. P.N Parashar</h2>
-<div class="space-y-6 text-on-surface-variant font-body-lg">
-<p>Prem Narayan Parashar is a highly respected legal professional with more than 35 years of distinguished experience in the Indian judicial and legal system. With an exceptional academic background from Aligarh Muslim University, where he secured First Position and Gold Medals in LL.B. and LL.M., he has built a remarkable career marked by integrity, excellence, and deep legal expertise.
+              <h3 class="font-headline-sm text-headline-sm mb-4">
+                Civil Litigation Lawyer
+              </h3>
 
-He has served in several prestigious positions, including Judicial Member at the Income Tax Appellate Tribunal (ITAT), Judicial Member at the Central Administrative Tribunal (CAT), and Member of the Competition Commission of India (CCI). He has also been associated with the Higher Judicial Services of Uttar Pradesh in multiple senior capacities throughout his career.
+              <p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">
+                Expert legal representation in civil disputes, property matters,
+                recovery suits, and court proceedings.
+              </p>
 
-As Senior Partner at “Parashar & Parashar” Law Firm, he has represented and advised matters before the Supreme Court of India, various High Courts, and tribunals across the country. His expertise spans litigation, legal advisory, compliance, dispute resolution, and strategic legal consultation across diverse sectors.
+              <a
+                class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary"
+                href="#"
+              >
+                Learn More
+                <span class="material-symbols-outlined text-sm">
+                  arrow_forward
+                </span>
+              </a>
+            </div>
 
-At our organization, Mr. Parashar brings invaluable legal insight, strong ethical leadership, and decades of judicial experience, ensuring transparent, compliant, and professionally guided operations.</p>
-</div>
-<div class="mt-10 pt-10 border-t border-outline-variant grid grid-cols-2 gap-8">
-<div>
-<h4 class="font-headline-sm text-headline-sm text-primary mb-2">35+</h4>
-<p class="font-label-md text-label-md">Years of Advisory</p>
-</div>
+            <!-- Service Card 4 -->
+            <div
+              class="group border border-outline/30 p-10 hover:bg-surface-container-lowest hover:text-on-surface transition-all duration-500"
+            >
+              <div
+                class="mb-8 inline-block p-4 bg-primary-container rounded-lg group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary"
+                >
+                  gavel
+                </span>
+              </div>
 
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Services Section -->
-<section class="py-section-padding-lg bg-on-background text-surface overflow-hidden" id="services">
-<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-20">
-<h2 class="font-headline-lg text-headline-lg mb-6">Services</h2>
-<p class="max-w-2xl mx-auto opacity-70 font-body-lg">Comprehensive consulting services tailored to the acquisition, valuation, and management of ultra-premium residential assets.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-<!-- Service Card 1 -->
-<div class="group border border-outline/30 p-10 hover:bg-surface-container-lowest hover:text-on-surface transition-all duration-500">
-<div class="mb-8 inline-block p-4 bg-primary-container rounded-lg group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary" data-icon="real_estate_agent">real_estate_agent</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm mb-4">Property Lawyer</h3>
-<p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">Property Lawyer services for secure and legally verified real estate transactions.</p>
-<a class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary" href="#">
-                            Learn More <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</div>
-<!-- Service Card 2 -->
-<div class="group border border-outline/30 p-10 hover:bg-surface-container-lowest hover:text-on-surface transition-all duration-500">
-<div class="mb-8 inline-block p-4 bg-primary-container rounded-lg group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary" data-icon="analytics">analytics</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm mb-4">Corporate Lawyer
-</h3>
-<p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">Corporate Legal Services for Contracts, Compliance & Business Protection.
-</p>
-<a class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary" href="#">
-                            Learn More <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</div>
-<!-- Service Card 3 -->
-<div class="group border border-outline/30 p-10 hover:bg-surface-container-lowest hover:text-on-surface transition-all duration-500">
-<div class="mb-8 inline-block p-4 bg-primary-container rounded-lg group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary" data-icon="insights">insights</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm mb-4">Supreme Court Lawyer</h3>
-<p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">Experienced Supreme Court Lawyers for High-Profile & Complex Legal Matters.</p>
-<a class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary" href="#">
-                            Learn More <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-</section>
+              <h3 class="font-headline-sm text-headline-sm mb-4">
+                Taxation Lawyer
+              </h3>
 
-<!-- Contact Section -->
-<section class="py-section-padding-lg bg-surface" id="contact">
-<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
-<div>
-<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Establish a Connection</h2>
-<p class="font-body-lg text-on-surface-variant mb-12">Our advisors are available for private consultations across our global offices. Reach out to schedule a confidential discussion regarding your residential requirements.</p>
-<div class="space-y-8">
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
-<div>
-<p class="font-label-md text-label-md text-primary mb-1">HQ Address</p>
-<p class="font-body-md text-on-surface-variant">SX 69-70, 6th Floor<br/>NPX Urbtech, Sector 153<br/>Noida 201310</p>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary" data-icon="call">call</span>
-<div>
-<p class="font-label-md text-label-md text-primary mb-1">Direct Line</p>
-<p class="font-body-md text-on-surface-variant">+91 9891231637</p>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
-<div>
-<p class="font-label-md text-label-md text-primary mb-1">Email Inquiry</p>
-<p class="font-body-md text-on-surface-variant">contact@bluepine.co.in</p>
-</div>
-</div>
-</div>
-</div>
-<div class="h-[400px] bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant relative shadow-lg">
-<!-- Interactive Map -->
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5684089236324!2d77.35879872346897!3d28.592089874200008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sNPX%20Urbtech%2C%20Sector%20153%2C%20Noida!2s28.5920894%2C77.3587987!5e0!3m2!1sen!2sin!4v1716312000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
-<div class="absolute top-4 left-4 bg-primary text-on-primary px-4 py-2 rounded-lg shadow-xl flex items-center gap-2 pointer-events-none">
-<span class="material-symbols-outlined text-lg" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
-<div>
-<p class="font-label-md text-label-md font-semibold">Blue Pine HQ</p>
-<p class="font-body-sm text-body-sm text-on-primary/80 text-xs">Noida, India</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-on-background dark:bg-surface-container-lowest border-t border-outline/10">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-padding-sm max-w-[1200px] mx-auto">
-<div class="space-y-6">
-<a href="index.html" class="inline-block hover:opacity-80 transition-opacity">
-<img alt="Blue Pine Logo" class="h-16 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"/>
-</a>
-<p class="text-surface-variant opacity-80 font-body-md">Architecting luxury real estate experiences since 2008.</p>
-</div>
-<div class="space-y-4">
-<h5 class="text-surface font-label-md text-label-md uppercase tracking-widest">Navigation</h5>
-<ul class="space-y-2">
-<li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md" href="#home">Home</a></li>
-<li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md" href="#about">About</a></li>
-<li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md" href="#services">Our Services</a></li>
-<li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md" href="#contact">Contact Us</a></li>
-</ul>
-</div>
-<div class="space-y-4">
-<h5 class="text-surface font-label-md text-label-md uppercase tracking-widest">Services</h5>
-<ul class="space-y-2">
-<li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md" href="#">Consulting</a></li>
-<li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md" href="#">Advisor</a></li>
-<li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md" href="#">Valuation</a></li>
-<li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md" href="#">Investment</a></li>
-</ul>
-</div>
-<div class="space-y-4">
-<h5 class="text-surface font-label-md text-label-md uppercase tracking-widest">Legal</h5>
-<ul class="space-y-2">
-<li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md" href="#">Privacy Policy</a></li>
-<li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md" href="#">Terms of Service</a></li>
-</ul>
-</div>
-</div>
-<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-8 border-t border-outline/10 text-center md:text-left">
-<p class="text-surface-variant opacity-60 text-label-sm font-label-sm">© 2024 Blue Pine Real Estate. All rights reserved.</p>
-</div>
-</footer>
-<script>
-const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxhRiSqMppLHlB-sUkT0nHw4lbUuIHrDjAUFpX4XvlZd82XbW7-uipcO7w7D-aPJGxHLw/exec';
+              <p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">
+                They fiercely defend your interests against tax authorities,
+                representing you in audits, tribunals, and courts to resolve
+                disputes.
+              </p>
 
-// Flipping text functionality
-let isFlipped = false;
-setInterval(() => {
-    const flipText = document.getElementById('flipText');
-    if (flipText) {
-        isFlipped = !isFlipped;
-        flipText.textContent = isFlipped ? 'Anywhere' : 'Anytime';
-        flipText.style.transition = 'opacity 0.3s ease';
-    }
-}, 1000);
+              <a
+                class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary"
+                href="#"
+              >
+                Learn More
+                <span class="material-symbols-outlined text-sm">
+                  arrow_forward
+                </span>
+              </a>
+            </div>
+            <!-- Service Card 5 -->
 
-// Booking form popup
-function openBookingForm() {
-    const modalHTML = `
+            <div
+              class="group border border-outline/30 p-10 hover:bg-surface-container-lowest hover:text-on-surface transition-all duration-500"
+            >
+              <div
+                class="mb-8 inline-block p-4 bg-primary-container rounded-lg group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary"
+                >
+                  gavel
+                </span>
+              </div>
+
+              <h3 class="font-headline-sm text-headline-sm mb-4">
+                Banking  Lawyer
+              </h3>
+
+              <p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">
+                Drafting and negotiating 
+                high-value loan agreements, mortgages, and credit facilities.
+              </p>
+
+              <a
+                class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary"
+                href="#"
+              >
+                Learn More
+                <span class="material-symbols-outlined text-sm">
+                  arrow_forward
+                </span>
+              </a>
+            </div>
+            <!-- Service Card 6 -->
+            <div
+              class="group border border-outline/30 p-10 hover:bg-surface-container-lowest hover:text-on-surface transition-all duration-500"
+            >
+              <div
+                class="mb-8 inline-block p-4 bg-primary-container rounded-lg group-hover:bg-primary transition-colors"
+              >
+                <span
+                  class="material-symbols-outlined text-on-primary-container group-hover:text-on-primary"
+                  data-icon="insights"
+                  >insights</span
+                >
+              </div>
+              <h3 class="font-headline-sm text-headline-sm mb-4">
+                Supreme Court Lawyer
+              </h3>
+              <p class="opacity-70 group-hover:opacity-100 mb-8 font-body-md">
+                Experienced Supreme Court Lawyers for High-Profile & Complex
+                Legal Matters.
+              </p>
+              <a
+                class="flex items-center gap-2 font-label-md text-label-md text-on-tertiary-container group-hover:text-primary"
+                href="#"
+              >
+                Learn More
+                <span
+                  class="material-symbols-outlined text-sm"
+                  data-icon="arrow_forward"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="py-section-padding-lg bg-surface" id="contact">
+        <div
+          class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop"
+        >
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div>
+              <h2 class="font-headline-lg text-headline-lg text-primary mb-8">
+                Establish a Connection
+              </h2>
+              <p class="font-body-lg text-on-surface-variant mb-12">
+                Our advisors are available for private consultations across our
+                global offices. Reach out to schedule a confidential discussion
+                regarding your residential requirements.
+              </p>
+              <div class="space-y-8">
+                <div class="flex items-start gap-4">
+                  <span
+                    class="material-symbols-outlined text-primary"
+                    data-icon="location_on"
+                    >location_on</span
+                  >
+                  <div>
+                    <p class="font-label-md text-label-md text-primary mb-1">
+                      HQ Address
+                    </p>
+                    <p class="font-body-md text-on-surface-variant">
+                      SX 69-70, 6th Floor<br />NPX Urbtech, Sector 153<br />Noida
+                      201310
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <span
+                    class="material-symbols-outlined text-primary"
+                    data-icon="call"
+                    >call</span
+                  >
+                  <div>
+                    <p class="font-label-md text-label-md text-primary mb-1">
+                      Direct Line
+                    </p>
+                    <p class="font-body-md text-on-surface-variant">
+                      +91 9891231637
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <span
+                    class="material-symbols-outlined text-primary"
+                    data-icon="mail"
+                    >mail</span
+                  >
+                  <div>
+                    <p class="font-label-md text-label-md text-primary mb-1">
+                      Email Inquiry
+                    </p>
+                    <p class="font-body-md text-on-surface-variant">
+                      contact@bluepine.co.in
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="h-[400px] bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant relative shadow-lg"
+            >
+              <!-- Interactive Map -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5684089236324!2d77.35879872346897!3d28.592089874200008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sNPX%20Urbtech%2C%20Sector%20153%2C%20Noida!2s28.5920894%2C77.3587987!5e0!3m2!1sen!2sin!4v1716312000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="w-full h-full"
+              ></iframe>
+              <div
+                class="absolute top-4 left-4 bg-primary text-on-primary px-4 py-2 rounded-lg shadow-xl flex items-center gap-2 pointer-events-none"
+              >
+                <span
+                  class="material-symbols-outlined text-lg"
+                  data-icon="location_on"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >location_on</span
+                >
+                <div>
+                  <p class="font-label-md text-label-md font-semibold">
+                    Blue Pine HQ
+                  </p>
+                  <p
+                    class="font-body-sm text-body-sm text-on-primary/80 text-xs"
+                  >
+                    Noida, India
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-on-background dark:bg-surface-container-lowest border-t border-outline/10"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-padding-sm max-w-[1200px] mx-auto"
+      >
+        <div class="space-y-6">
+          <a
+            href="index.html"
+            class="inline-block hover:opacity-80 transition-opacity"
+          >
+            <img
+              alt="Blue Pine Logo"
+              class="h-16 w-auto object-contain"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"
+            />
+          </a>
+          <p class="text-surface-variant opacity-80 font-body-md">
+            Architecting luxury real estate experiences since 2008.
+          </p>
+        </div>
+        <div class="space-y-4">
+          <h5
+            class="text-surface font-label-md text-label-md uppercase tracking-widest"
+          >
+            Navigation
+          </h5>
+          <ul class="space-y-2">
+            <li>
+              <a
+                class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                href="#home"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                href="#about"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                href="#services"
+                >Our Services</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                href="#contact"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <h5
+            class="text-surface font-label-md text-label-md uppercase tracking-widest"
+          >
+            Services
+          </h5>
+          <ul class="space-y-2">
+            <li>
+              <a
+                class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                href="#"
+                >Consulting</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                href="#"
+                >Advisor</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                href="#"
+                >Valuation</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                href="#"
+                >Investment</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <h5
+            class="text-surface font-label-md text-label-md uppercase tracking-widest"
+          >
+            Legal
+          </h5>
+          <ul class="space-y-2">
+            <li>
+              <a
+                class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                href="#"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                href="#"
+                >Terms of Service</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-8 border-t border-outline/10 text-center md:text-left"
+      >
+        <p class="text-surface-variant opacity-60 text-label-sm font-label-sm">
+          © 2024 Blue Pine Real Estate. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script>
+      const GOOGLE_APPS_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbxhRiSqMppLHlB-sUkT0nHw4lbUuIHrDjAUFpX4XvlZd82XbW7-uipcO7w7D-aPJGxHLw/exec";
+
+      // Flipping text functionality
+      let isFlipped = false;
+      setInterval(() => {
+        const flipText = document.getElementById("flipText");
+        if (flipText) {
+          isFlipped = !isFlipped;
+          flipText.textContent = isFlipped ? "Anywhere" : "Anytime";
+          flipText.style.transition = "opacity 0.3s ease";
+        }
+      }, 1000);
+
+      // Booking form popup
+      function openBookingForm() {
+        const modalHTML = `
         <div id="bookingModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4">
             <div class="bg-white rounded-lg shadow-2xl max-w-md w-full max-h-screen overflow-y-auto">
                 <div class="flex justify-between items-center p-6 border-b border-outline-variant">
@@ -517,103 +985,118 @@ function openBookingForm() {
             </div>
         </div>
     `;
-    
-    const modalContainer = document.createElement('div');
-    modalContainer.innerHTML = modalHTML;
-    document.body.appendChild(modalContainer.firstElementChild);
-    
-    document.getElementById('bookingForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const submitBtn = document.getElementById('bookingSubmitBtn');
-        const messageDiv = document.getElementById('bookingMessage');
-        const originalText = submitBtn.textContent;
-        
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="btn-loader"></span>Scheduling...';
-        
-        const formData = new FormData(this);
-        const data = {
-            name: formData.get('name'),
-            contact: formData.get('contact'),
-            email: formData.get('email'),
-            requirement: formData.get('issue'),
-            source: 'Advisor Page - Booking Form',
-            timestamp: new Date().toLocaleString()
-        };
-        
-        try {
-            const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
-                method: 'POST',
-                body: JSON.stringify(data)
-            });
-            
-            if (response.ok) {
-                document.getElementById('bookingForm').reset();
-                const successMsg = document.createElement('div');
-                successMsg.className = 'success-message';
-                successMsg.innerHTML = '<strong>Success!</strong> Your appointment request has been submitted successfully. We will contact you shortly.';
-                successMsg.style.display = 'block';
-                messageDiv.innerHTML = '';
+
+        const modalContainer = document.createElement("div");
+        modalContainer.innerHTML = modalHTML;
+        document.body.appendChild(modalContainer.firstElementChild);
+
+        document
+          .getElementById("bookingForm")
+          .addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById("bookingSubmitBtn");
+            const messageDiv = document.getElementById("bookingMessage");
+            const originalText = submitBtn.textContent;
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML =
+              '<span class="btn-loader"></span>Scheduling...';
+
+            const formData = new FormData(this);
+            const data = {
+              name: formData.get("name"),
+              contact: formData.get("contact"),
+              email: formData.get("email"),
+              requirement: formData.get("issue"),
+              source: "Advisor Page - Booking Form",
+              timestamp: new Date().toLocaleString(),
+            };
+
+            try {
+              const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+                method: "POST",
+                body: JSON.stringify(data),
+              });
+
+              if (response.ok) {
+                document.getElementById("bookingForm").reset();
+                const successMsg = document.createElement("div");
+                successMsg.className = "success-message";
+                successMsg.innerHTML =
+                  "<strong>Success!</strong> Your appointment request has been submitted successfully. We will contact you shortly.";
+                successMsg.style.display = "block";
+                messageDiv.innerHTML = "";
                 messageDiv.appendChild(successMsg);
-                
+
                 setTimeout(() => {
-                    closeBookingForm();
+                  closeBookingForm();
                 }, 3000);
-            } else {
-                throw new Error('Form submission failed');
+              } else {
+                throw new Error("Form submission failed");
+              }
+            } catch (error) {
+              console.error("Error:", error);
+              const errorMsg = document.createElement("div");
+              errorMsg.className = "error-message";
+              errorMsg.innerHTML =
+                "<strong>Error!</strong> Failed to submit your request. Please try again.";
+              errorMsg.style.display = "block";
+              messageDiv.innerHTML = "";
+              messageDiv.appendChild(errorMsg);
+            } finally {
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalText;
             }
-        } catch (error) {
-            console.error('Error:', error);
-            const errorMsg = document.createElement('div');
-            errorMsg.className = 'error-message';
-            errorMsg.innerHTML = '<strong>Error!</strong> Failed to submit your request. Please try again.';
-            errorMsg.style.display = 'block';
-            messageDiv.innerHTML = '';
-            messageDiv.appendChild(errorMsg);
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
+          });
+      }
+
+      function closeBookingForm() {
+        const modal = document.getElementById("bookingModal");
+        if (modal) {
+          modal.remove();
         }
-    });
-}
+      }
 
-function closeBookingForm() {
-    const modal = document.getElementById('bookingModal');
-    if (modal) {
-        modal.remove();
-    }
-}
-
-// Close modal when clicking outside
-document.addEventListener('click', function(event) {
-    const modal = document.getElementById('bookingModal');
-    if (modal && event.target === modal) {
-        closeBookingForm();
-    }
-});
-
-// Mobile menu toggle
-const menuToggle = document.getElementById('menuToggle');
-const mobileMenu = document.getElementById('mobileMenu');
-if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-        const icon = menuToggle.querySelector('.material-symbols-outlined');
-        if (icon) {
-            icon.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
+      // Close modal when clicking outside
+      document.addEventListener("click", function (event) {
+        const modal = document.getElementById("bookingModal");
+        if (modal && event.target === modal) {
+          closeBookingForm();
         }
-        menuToggle.setAttribute('aria-expanded', String(!mobileMenu.classList.contains('hidden')));
-    });
-}
+      });
 
-window.addEventListener('resize', function() {
-    if (window.innerWidth >= 768 && mobileMenu && !mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.add('hidden');
-        const icon = menuToggle?.querySelector('.material-symbols-outlined');
-        if (icon) icon.textContent = 'menu';
-        menuToggle?.setAttribute('aria-expanded', 'false');
-    }
-});
-</script>
-</body></html>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+          const icon = menuToggle.querySelector(".material-symbols-outlined");
+          if (icon) {
+            icon.textContent = mobileMenu.classList.contains("hidden")
+              ? "menu"
+              : "close";
+          }
+          menuToggle.setAttribute(
+            "aria-expanded",
+            String(!mobileMenu.classList.contains("hidden")),
+          );
+        });
+      }
+
+      window.addEventListener("resize", function () {
+        if (
+          window.innerWidth >= 768 &&
+          mobileMenu &&
+          !mobileMenu.classList.contains("hidden")
+        ) {
+          mobileMenu.classList.add("hidden");
+          const icon = menuToggle?.querySelector(".material-symbols-outlined");
+          if (icon) icon.textContent = "menu";
+          menuToggle?.setAttribute("aria-expanded", "false");
+        }
+      });
+    </script>
+  </body>
+</html>

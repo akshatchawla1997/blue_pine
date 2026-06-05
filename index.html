@@ -1,364 +1,458 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="light scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-tertiary-container": "#cca65f",
-                        "error": "#ba1a1a",
-                        "on-primary-fixed": "#001945",
-                        "on-tertiary-fixed-variant": "#5d4201",
-                        "inverse-on-surface": "#eef1f3",
-                        "on-secondary-fixed": "#111c2c",
-                        "on-background": "#181c1e",
-                        "inverse-primary": "#b0c6ff",
-                        "secondary-fixed-dim": "#bcc7dd",
-                        "tertiary-container": "#553c00",
-                        "on-surface-variant": "#434652",
-                        "on-error-container": "#93000a",
-                        "inverse-surface": "#2d3133",
-                        "surface-tint": "#325baf",
-                        "secondary-fixed": "#d8e3fa",
-                        "tertiary": "#392700",
-                        "primary-container": "#003b8e",
-                        "primary": "#002662",
-                        "secondary-container": "#d5e0f7",
-                        "surface-container-high": "#e5e9eb",
-                        "on-tertiary-fixed": "#261900",
-                        "on-primary-fixed-variant": "#104295",
-                        "surface": "#f7fafc",
-                        "on-secondary": "#ffffff",
-                        "outline-variant": "#c3c6d3",
-                        "on-secondary-fixed-variant": "#3c475a",
-                        "surface-container-low": "#f1f4f6",
-                        "tertiary-fixed": "#ffdea5",
-                        "surface-variant": "#e0e3e5",
-                        "on-tertiary": "#ffffff",
-                        "primary-fixed-dim": "#b0c6ff",
-                        "outline": "#747783",
-                        "error-container": "#ffdad6",
-                        "surface-dim": "#d7dadc",
-                        "on-error": "#ffffff",
-                        "primary-fixed": "#d9e2ff",
-                        "on-primary-container": "#86aaff",
-                        "surface-container-highest": "#e0e3e5",
-                        "background": "#f7fafc",
-                        "on-surface": "#181c1e",
-                        "on-secondary-container": "#586377",
-                        "surface-container": "#ebeef0",
-                        "secondary": "#545f72",
-                        "tertiary-fixed-dim": "#e9c176",
-                        "surface-bright": "#f7fafc",
-                        "on-primary": "#ffffff",
-                        "surface-container-lowest": "#ffffff"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "margin-desktop": "80px",
-                        "margin-mobile": "20px",
-                        "gutter": "24px",
-                        "section-padding-lg": "120px",
-                        "section-padding-sm": "64px"
-                    },
-                    "fontFamily": {
-                        "label-sm": ["Hanken Grotesk"],
-                        "headline-lg": ["Libre Caslon Text"],
-                        "headline-lg-mobile": ["Libre Caslon Text"],
-                        "label-md": ["Hanken Grotesk"],
-                        "headline-md": ["Libre Caslon Text"],
-                        "body-lg": ["Hanken Grotesk"],
-                        "body-md": ["Hanken Grotesk"],
-                        "headline-xl": ["Libre Caslon Text"],
-                        "headline-sm": ["Libre Caslon Text"]
-                    },
-                    "fontSize": {
-                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
-                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "headline-xl": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
-                    }
-                }
-            }
-        }
+<html class="light scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#cca65f",
+              error: "#ba1a1a",
+              "on-primary-fixed": "#001945",
+              "on-tertiary-fixed-variant": "#5d4201",
+              "inverse-on-surface": "#eef1f3",
+              "on-secondary-fixed": "#111c2c",
+              "on-background": "#181c1e",
+              "inverse-primary": "#b0c6ff",
+              "secondary-fixed-dim": "#bcc7dd",
+              "tertiary-container": "#553c00",
+              "on-surface-variant": "#434652",
+              "on-error-container": "#93000a",
+              "inverse-surface": "#2d3133",
+              "surface-tint": "#325baf",
+              "secondary-fixed": "#d8e3fa",
+              tertiary: "#392700",
+              "primary-container": "#003b8e",
+              primary: "#002662",
+              "secondary-container": "#d5e0f7",
+              "surface-container-high": "#e5e9eb",
+              "on-tertiary-fixed": "#261900",
+              "on-primary-fixed-variant": "#104295",
+              surface: "#f7fafc",
+              "on-secondary": "#ffffff",
+              "outline-variant": "#c3c6d3",
+              "on-secondary-fixed-variant": "#3c475a",
+              "surface-container-low": "#f1f4f6",
+              "tertiary-fixed": "#ffdea5",
+              "surface-variant": "#e0e3e5",
+              "on-tertiary": "#ffffff",
+              "primary-fixed-dim": "#b0c6ff",
+              outline: "#747783",
+              "error-container": "#ffdad6",
+              "surface-dim": "#d7dadc",
+              "on-error": "#ffffff",
+              "primary-fixed": "#d9e2ff",
+              "on-primary-container": "#86aaff",
+              "surface-container-highest": "#e0e3e5",
+              background: "#f7fafc",
+              "on-surface": "#181c1e",
+              "on-secondary-container": "#586377",
+              "surface-container": "#ebeef0",
+              secondary: "#545f72",
+              "tertiary-fixed-dim": "#e9c176",
+              "surface-bright": "#f7fafc",
+              "on-primary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "margin-desktop": "80px",
+              "margin-mobile": "20px",
+              gutter: "24px",
+              "section-padding-lg": "120px",
+              "section-padding-sm": "64px",
+            },
+            fontFamily: {
+              "label-sm": ["Hanken Grotesk"],
+              "headline-lg": ["Libre Caslon Text"],
+              "headline-lg-mobile": ["Libre Caslon Text"],
+              "label-md": ["Hanken Grotesk"],
+              "headline-md": ["Libre Caslon Text"],
+              "body-lg": ["Hanken Grotesk"],
+              "body-md": ["Hanken Grotesk"],
+              "headline-xl": ["Libre Caslon Text"],
+              "headline-sm": ["Libre Caslon Text"],
+            },
+            fontSize: {
+              "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "headline-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg-mobile": [
+                "32px",
+                { lineHeight: "40px", fontWeight: "600" },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "32px",
+                { lineHeight: "40px", fontWeight: "600" },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "headline-xl": [
+                "60px",
+                {
+                  lineHeight: "72px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-sm": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+            },
+          },
+        },
+      };
     </script>
-<style>
-    .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-    .split-pane-hover:hover .bg-overlay {
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .split-pane-hover:hover .bg-overlay {
         background-color: rgba(0, 25, 69, 0.4);
-    }
+      }
 
-    /* ===== MOBILE-FIRST (default) ===== */
-    body {
+      /* ===== MOBILE-FIRST (default) ===== */
+      body {
         min-height: 100dvh;
         overflow-x: hidden;
-    }
+      }
 
-    /* ===== DESKTOP (768px+) ===== */
-    @media (min-width: 768px) {
+      /* ===== DESKTOP (768px+) ===== */
+      @media (min-width: 768px) {
         body {
-            overflow: hidden;
+          overflow: hidden;
         }
-    }
-</style>
-</head>
-<body class="bg-background text-on-background antialiased">
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background antialiased">
+    <!-- ============================================== -->
+    <!-- ===== MOBILE LAYOUT (FIXED RESPONSIVE) ======= -->
+    <!-- ============================================== -->
 
-<!-- ============================================== -->
-<!-- ===== MOBILE LAYOUT (FIXED RESPONSIVE) ======= -->
-<!-- ============================================== -->
-
-<!-- Floating Logo -->
-<header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md shadow-md z-50 md:hidden">
-
-    <div class="flex items-center h-20 px-5">
-
+    <!-- Floating Logo -->
+    <header
+      class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md shadow-md z-50 md:hidden"
+    >
+      <div class="flex items-center h-20 px-5">
         <img
-            alt="Blue Pine Logo"
-            class="h-14 w-auto object-contain"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"
+          alt="Blue Pine Logo"
+          class="h-14 w-auto object-contain"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"
         />
+        <h2 class="ml-4 text-xl font-bold text-gray-800">
+  Blue Pine Consulting
+</h2>
+        
+        
+      </div>
 
-    </div>
-
-</header>
-
-<!-- Mobile Main -->
-<div class="md:hidden flex flex-col min-h-screen w-full relative overflow-hidden">
-
-    <!-- Mobile Consulting Section -->
-    <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden border-b border-white/10">
-
-        <!-- Background -->
-        <div class="absolute inset-0">
-
-            <div
-                class="absolute inset-0 w-full h-full bg-cover bg-center"
-                style="
-                    background-image:url('public/consulting_img.png');
-                    background-position:center center;
-                ">
-            </div>
-
-            <!-- Better overlay -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/35 to-black/60"></div>
-
-        </div>
-
-        <!-- Content -->
-        <div class="relative z-20 flex flex-col items-center justify-center text-center px-6 pt-28 pb-16">
-
-            <span class="text-[#f4d08b] uppercase tracking-[0.28em] text-[12px] font-semibold">
-                Professional Services
-            </span>
-
-            <h2 class="font-headline-lg-mobile text-[3rem] leading-[0.95] text-white mt-5 drop-shadow-xl">
-                Blue Pine Consulting
-            </h2>
-
-            <p class="font-body-md text-[1rem] leading-7 text-white/95 max-w-sm mx-auto mt-6 drop-shadow-md">
-                Strategic real estate solutions for corporate entities and high-net-worth investors.
-            </p>
-
-            <a
-                href="consulting.html"
-                class="inline-block mt-10 bg-primary text-white px-10 py-4 uppercase tracking-[0.2em] shadow-2xl rounded-[4px]"
-            >
-                Enter Site
-            </a>
-
-        </div>
-
-    </section>
-
-    <!-- Mobile Advisor Section -->
-    <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
-
-        <!-- Background -->
-        <div class="absolute inset-0">
-
-            <div
-                class="absolute inset-0 w-full h-full bg-cover bg-center"
-                style="
-                    background-image:url('https://images.unsplash.com/photo-1526401485004-2ea7c2c5bf04');
-                    background-position:center center;
-                ">
-            </div>
-
-            <!-- Better overlay -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/65"></div>
-
-        </div>
-
-        <!-- Content -->
-        <div class="relative z-20 flex flex-col items-center justify-center text-center px-6 pt-20 pb-16">
-
-            <span class="text-[#f4d08b] uppercase tracking-[0.28em] text-[12px] font-semibold">
-                Private Advisory
-            </span>
-
-            <h2 class="font-headline-lg-mobile text-[3rem] leading-[0.95] text-white mt-5 drop-shadow-xl">
-                Blue Pine Advisor
-            </h2>
-
-            <p class="font-body-md text-[1rem] leading-7 text-white/95 max-w-sm mx-auto mt-6 drop-shadow-md">
-                Bespoke residential management and tailored acquisition strategies for the discerning individual.
-            </p>
-
-            <a
-                href="advisor.html"
-                class="inline-block mt-10 bg-primary text-white px-10 py-4 uppercase tracking-[0.2em] shadow-2xl rounded-[4px]"
-            >
-                Enter Site
-            </a>
-
-        </div>
-
-    </section>
-
-</div>
-
-<!-- ============================================== -->
-<!-- ===== DESKTOP LAYOUT (visible on md+) ======== -->
-<!-- ============================================== -->
-
-<!-- Desktop: Logo header -->
-<header class="bg-white/95 backdrop-blur-md shadow-md hidden md:flex fixed top-0 left-0 w-full z-50 h-24 items-center px-8">
     
-    <!-- Logo Left -->
-    <div class="flex items-center">
-        <img 
-            alt="Blue Pine Logo" 
-            class="h-24 w-auto object-contain"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"
+    </header>
+
+    <!-- Mobile Main -->
+    <div
+      class="md:hidden flex flex-col min-h-screen w-full relative overflow-hidden pt-20"
+    >
+      <!-- Mobile Consulting Section -->
+      <section
+        class="relative min-h-[50vh] flex items-center justify-center overflow-hidden border-b border-white/10"
+      >
+        <!-- Background -->
+        <div class="absolute inset-0">
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center"
+            style="
+              background-image: url(&quot;public/consulting_img.png&quot;);
+              background-position: center center;
+            "
+          ></div>
+
+          <!-- Better overlay -->
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/35 to-black/60"
+          ></div>
+        </div>
+
+        <!-- Content -->
+        <div
+          class="relative z-20 flex flex-col items-center justify-center text-center px-6 pt-28 pb-16"
+        >
+          <span
+            class="text-white uppercase tracking-[0.28em] text-[12px] font-semibold"
+          >
+            Professional Services
+          </span>
+
+          <h2
+            class="font-headline-lg-mobile text-[3rem] leading-[0.95] text-white mt-5 drop-shadow-xl"
+          >
+            Real Estate Consulting
+          </h2>
+
+          <p
+            class="font-body-md text-[1rem] leading-7 text-white/95 max-w-sm mx-auto mt-6 drop-shadow-md"
+          >
+            We Deal Only in the Top 3 Residential Projects.
+          </p>
+
+          <a
+            href="consulting.html"
+            class="inline-block mt-10 bg-primary text-white px-10 py-4 uppercase tracking-[0.2em] shadow-2xl rounded-[4px]"
+          >
+            Enter Site
+          </a>
+        </div>
+      </section>
+
+      <!-- Mobile Advisor Section -->
+      <section
+        class="relative min-h-[50vh] flex items-center justify-center overflow-hidden"
+      >
+        <!-- Background -->
+        <div class="absolute inset-0">
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center"
+            style="
+              background-image: url('public/legal_advisor.png');
+              background-position: center center;
+            "
+          ></div>
+
+          <!-- Better overlay -->
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/65"
+          ></div>
+        </div>
+
+        <!-- Content -->
+        <div
+          class="relative z-20 flex flex-col items-center justify-center text-center px-6 pt-20 pb-16"
+        >
+          <span
+            class="text-[#f4d08b] uppercase tracking-[0.28em] text-[12px] font-semibold"
+          >
+            Private Advisory
+          </span>
+
+          <h2
+            class="font-headline-lg-mobile text-[3rem] leading-[0.95] text-white mt-5 drop-shadow-xl"
+          >
+            Legal Advisor
+          </h2>
+
+          <p
+            class="font-body-md text-[1rem] leading-7 text-white/95 max-w-sm mx-auto mt-6 drop-shadow-md"
+          >
+            Bespoke residential management and tailored acquisition strategies
+            for the discerning individual.
+          </p>
+
+          <a
+            href="advisor.html"
+            class="inline-block mt-10 bg-primary text-white px-10 py-4 uppercase tracking-[0.2em] shadow-2xl rounded-[4px]"
+          >
+            Enter Site
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- ===== DESKTOP LAYOUT (visible on md+) ======== -->
+    <!-- ============================================== -->
+
+    <!-- Desktop: Logo header -->
+    <header
+      class="bg-white/95 backdrop-blur-md shadow-md hidden md:flex fixed top-0 left-0 w-full z-50 h-24 items-center px-8"
+    >
+      <!-- Logo Left -->
+      <div class="flex items-center">
+        <img
+          alt="Blue Pine Logo"
+          class="h-24 w-auto object-contain"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"
         />
-    </div>
+      </div>
+      
+          <h1 class="ml-10 text-2xl font-bold text-blue-800 text-center">
+    <span class="tracking-[0.3em]">BLUE</span>
+    <span class="tracking-[0.3em] ml-2">PINE</span>
+    <span class="tracking-[0.3em] ml-2">CONSULTING</span>
+</h1>
+    </header>
 
-</header>
-
-<!-- Desktop: Main split pane -->
-<main class="hidden md:flex flex-row h-screen w-full relative">
-    <!-- Desktop: Consulting (Left) -->
-    <section class="relative w-1/2 h-full group split-pane-hover cursor-pointer border-r border-outline-variant/20 overflow-hidden">
-
+    <!-- Desktop: Main split pane -->
+    <main class="hidden md:flex flex-row h-screen w-full relative">
+      <!-- Desktop: Consulting (Left) -->
+      <section
+        class="relative w-1/2 h-full group split-pane-hover cursor-pointer border-r border-outline-variant/20 overflow-hidden"
+      >
         <!-- Background -->
-        <div 
-            class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            style="
-                background-image: url('public/consulting_img.png');
-                background-position: center center;
-            ">
-        </div>
+        <div
+          class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+          style="
+            background-image: url(&quot;public/consulting_img.png&quot;);
+            background-position: center center;
+          "
+        ></div>
 
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/55 transition-colors duration-500 bg-overlay"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/55 transition-colors duration-500 bg-overlay"
+        ></div>
 
         <!-- Content -->
-        <div class="relative h-full w-full flex flex-col items-center justify-center px-10 text-center">
+        <div
+          class="relative h-full w-full flex flex-col items-center justify-center px-10 text-center"
+        >
+          <div class="space-y-7 max-w-2xl">
+            <span
+              class="text-white uppercase tracking-[0.25em] text-sm font-semibold drop-shadow-xl"
+            >
+              Professional Services
+            </span>
 
-            <div class="space-y-7 max-w-2xl">
+            <h2
+              class="font-headline-xl text-[5rem] leading-[0.95] font-semibold text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]"
+            >
+              Real Estate Consulting
+            </h2>
 
-                <span class="text-blue-900 uppercase tracking-[0.25em] text-sm font-semibold drop-shadow-xl">
-                    Professional Services
-                </span>
+            <p
+              class="font-body-lg text-[1.2rem] leading-9 text-white/95 max-w-xl mx-auto drop-shadow-md"
+            >
+              We Deal Only in the Top 3 Residential Projects.
+            </p>
 
-                <h2 class="font-headline-xl text-[5rem] leading-[0.95] font-semibold text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]">
-                    Blue Pine Consulting
-                </h2>
-
-                <p class="font-body-lg text-[1.2rem] leading-9 text-white/95 max-w-xl mx-auto drop-shadow-md">
-                    Strategic real estate solutions for corporate entities and high-net-worth investors.
-                </p>
-
-                <div class="pt-10">
-                    <a 
-                        href="consulting.html"
-                        class="inline-block bg-primary text-white font-label-md text-label-md px-12 py-5 rounded-[4px] uppercase tracking-[0.18em] hover:bg-primary-container transition-all shadow-2xl">
-                        Enter Site
-                    </a>
-                </div>
-
+            <div class="pt-10">
+              <a
+                href="consulting.html"
+                class="inline-block bg-primary text-white font-label-md text-label-md px-12 py-5 rounded-[4px] uppercase tracking-[0.18em] hover:bg-primary-container transition-all shadow-2xl"
+              >
+                Enter Site
+              </a>
             </div>
-
+          </div>
         </div>
+      </section>
 
-    </section>
-
-    <!-- Desktop: Advisor (Right) -->
-    <section class="relative w-1/2 h-full group split-pane-hover cursor-pointer overflow-hidden">
-
+      <!-- Desktop: Advisor (Right) -->
+      <section
+        class="relative w-1/2 h-full group split-pane-hover cursor-pointer overflow-hidden"
+      >
         <!-- Background -->
-        <div 
-            class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            style="
-                background-image: url('public/legal_advisor.png');
-                background-position: center center;
-            ">
-        </div>
+        <div
+          class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+          style="
+            background-image: url(&quot;public/legal_advisor.png&quot;);
+            background-position: center center;
+          "
+        ></div>
 
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60 transition-colors duration-500 bg-overlay"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60 transition-colors duration-500 bg-overlay"
+        ></div>
 
         <!-- Content -->
-        <div class="relative h-full w-full flex flex-col items-center justify-center px-10 text-center">
+        <div
+          class="relative h-full w-full flex flex-col items-center justify-center px-10 text-center"
+        >
+          <div class="space-y-7 max-w-2xl">
+            <span
+              class="text-white uppercase tracking-[0.25em] text-sm font-semibold drop-shadow-xl"
+            >
+              Legal Advisory
+            </span>
 
-            <div class="space-y-7 max-w-2xl">
+            <h2
+              class="font-headline-xl text-[5rem] leading-[0.95] font-semibold text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]"
+            >
+              Legal Advisor
+            </h2>
 
-                <span class="text-white uppercase tracking-[0.25em] text-sm font-semibold drop-shadow-xl">
-                    Legal Advisory
-                </span>
+            <p
+              class="font-body-lg text-[1.2rem] leading-9 text-white/95 max-w-xl mx-auto drop-shadow-md"
+            >
+              Bespoke residential management and tailored acquisition strategies
+              for the discerning individual.
+            </p>
 
-                <h2 class="font-headline-xl text-[5rem] leading-[0.95] font-semibold text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]">
-                    Blue Pine Advisor
-                </h2>
-
-                <p class="font-body-lg text-[1.2rem] leading-9 text-white/95 max-w-xl mx-auto drop-shadow-md">
-                    Bespoke residential management and tailored acquisition strategies for the discerning individual.
-                </p>
-
-                <div class="pt-10">
-                    <a 
-                        href="advisor.html"
-                        class="inline-block bg-primary text-white font-label-md text-label-md px-12 py-5 rounded-[4px] uppercase tracking-[0.18em] hover:bg-primary-container transition-all shadow-2xl">
-                        Enter Site
-                    </a>
-                </div>
-
+            <div class="pt-10">
+              <a
+                href="advisor.html"
+                class="inline-block bg-primary text-white font-label-md text-label-md px-12 py-5 rounded-[4px] uppercase tracking-[0.18em] hover:bg-primary-container transition-all shadow-2xl"
+              >
+                Enter Site
+              </a>
             </div>
-
+          </div>
         </div>
+      </section>
+    </main>
 
-    </section>
-
-</main>
-
-<!-- Desktop: Footer overlay -->
-<footer class="hidden md:flex fixed bottom-0 left-0 w-full z-50 pb-10 flex-col items-center gap-6 pointer-events-none">
-    <div class="flex gap-12 pointer-events-auto">
-        <a class="font-label-md text-label-md text-on-primary/60 hover:text-on-primary transition-colors" href="#">Privacy Policy</a>
-        <a class="font-label-md text-label-md text-on-primary/60 hover:text-on-primary transition-colors" href="#">Legal Terms</a>
-        <a class="font-label-md text-label-md text-on-primary/60 hover:text-on-primary transition-colors" href="#">Contact</a>
-    </div>
-    <p class="font-label-sm text-label-sm text-on-primary/40">© 2024 Blue Pine Real Estate. All rights reserved.</p>
-</footer>
-
-</body></html>
+    <!-- Desktop: Footer overlay -->
+    <footer
+      class="hidden md:flex fixed bottom-0 left-0 w-full z-50 pb-10 flex-col items-center gap-6 pointer-events-none"
+    >
+      <div class="flex gap-12 pointer-events-auto">
+        <a
+          class="font-label-md text-label-md text-on-primary/60 hover:text-on-primary transition-colors"
+          href="#"
+          >Privacy Policy</a
+        >
+        <a
+          class="font-label-md text-label-md text-on-primary/60 hover:text-on-primary transition-colors"
+          href="#"
+          >Legal Terms</a
+        >
+        <a
+          class="font-label-md text-label-md text-on-primary/60 hover:text-on-primary transition-colors"
+          href="#"
+          >Contact</a
+        >
+      </div>
+      <p class="font-label-sm text-label-sm text-on-primary/40">
+        © 2024 Blue Pine Real Estate. All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>
