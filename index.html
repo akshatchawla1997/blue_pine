@@ -1,458 +1,746 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html class="light scroll-smooth" lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blue Pine | Commercial Real Estate Consulting</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;600;700&amp;family=Hanken+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
     <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-tertiary-container": "#cca65f",
-              error: "#ba1a1a",
-              "on-primary-fixed": "#001945",
-              "on-tertiary-fixed-variant": "#5d4201",
-              "inverse-on-surface": "#eef1f3",
-              "on-secondary-fixed": "#111c2c",
-              "on-background": "#181c1e",
-              "inverse-primary": "#b0c6ff",
-              "secondary-fixed-dim": "#bcc7dd",
-              "tertiary-container": "#553c00",
-              "on-surface-variant": "#434652",
-              "on-error-container": "#93000a",
-              "inverse-surface": "#2d3133",
-              "surface-tint": "#325baf",
-              "secondary-fixed": "#d8e3fa",
-              tertiary: "#392700",
-              "primary-container": "#003b8e",
-              primary: "#002662",
-              "secondary-container": "#d5e0f7",
-              "surface-container-high": "#e5e9eb",
-              "on-tertiary-fixed": "#261900",
-              "on-primary-fixed-variant": "#104295",
-              surface: "#f7fafc",
-              "on-secondary": "#ffffff",
-              "outline-variant": "#c3c6d3",
-              "on-secondary-fixed-variant": "#3c475a",
-              "surface-container-low": "#f1f4f6",
-              "tertiary-fixed": "#ffdea5",
-              "surface-variant": "#e0e3e5",
-              "on-tertiary": "#ffffff",
-              "primary-fixed-dim": "#b0c6ff",
-              outline: "#747783",
-              "error-container": "#ffdad6",
-              "surface-dim": "#d7dadc",
-              "on-error": "#ffffff",
-              "primary-fixed": "#d9e2ff",
-              "on-primary-container": "#86aaff",
-              "surface-container-highest": "#e0e3e5",
-              background: "#f7fafc",
-              "on-surface": "#181c1e",
-              "on-secondary-container": "#586377",
-              "surface-container": "#ebeef0",
-              secondary: "#545f72",
-              "tertiary-fixed-dim": "#e9c176",
-              "surface-bright": "#f7fafc",
-              "on-primary": "#ffffff",
-              "surface-container-lowest": "#ffffff",
-            },
-            borderRadius: {
-              DEFAULT: "0.125rem",
-              lg: "0.25rem",
-              xl: "0.5rem",
-              full: "0.75rem",
-            },
-            spacing: {
-              "margin-desktop": "80px",
-              "margin-mobile": "20px",
-              gutter: "24px",
-              "section-padding-lg": "120px",
-              "section-padding-sm": "64px",
-            },
-            fontFamily: {
-              "label-sm": ["Hanken Grotesk"],
-              "headline-lg": ["Libre Caslon Text"],
-              "headline-lg-mobile": ["Libre Caslon Text"],
-              "label-md": ["Hanken Grotesk"],
-              "headline-md": ["Libre Caslon Text"],
-              "body-lg": ["Hanken Grotesk"],
-              "body-md": ["Hanken Grotesk"],
-              "headline-xl": ["Libre Caslon Text"],
-              "headline-sm": ["Libre Caslon Text"],
-            },
-            fontSize: {
-              "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
-              "headline-lg": [
-                "48px",
-                {
-                  lineHeight: "56px",
-                  letterSpacing: "-0.01em",
-                  fontWeight: "600",
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#cca65f",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#001945",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "inverse-on-surface": "#eef1f3",
+                        "on-secondary-fixed": "#111c2c",
+                        "on-background": "#181c1e",
+                        "inverse-primary": "#b0c6ff",
+                        "secondary-fixed-dim": "#bcc7dd",
+                        "tertiary-container": "#553c00",
+                        "on-surface-variant": "#434652",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "surface-tint": "#325baf",
+                        "secondary-fixed": "#d8e3fa",
+                        "tertiary": "#392700",
+                        "primary-container": "#003b8e",
+                        "primary": "#002662",
+                        "secondary-container": "#d5e0f7",
+                        "surface-container-high": "#e5e9eb",
+                        "on-tertiary-fixed": "#261900",
+                        "on-primary-fixed-variant": "#104295",
+                        "surface": "#f7fafc",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c3c6d3",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "surface-container-low": "#f1f4f6",
+                        "tertiary-fixed": "#ffdea5",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "outline": "#747783",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d7dadc",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#d9e2ff",
+                        "on-primary-container": "#86aaff",
+                        "surface-container-highest": "#e0e3e5",
+                        "background": "#f7fafc",
+                        "on-surface": "#181c1e",
+                        "on-secondary-container": "#586377",
+                        "surface-container": "#ebeef0",
+                        "secondary": "#545f72",
+                        "tertiary-fixed-dim": "#e9c176",
+                        "surface-bright": "#f7fafc",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "80px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "section-padding-lg": "120px",
+                        "section-padding-sm": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Libre Caslon Text"],
+                        "headline-lg-mobile": ["Libre Caslon Text"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-md": ["Libre Caslon Text"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-xl": ["Libre Caslon Text"],
+                        "headline-sm": ["Libre Caslon Text"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-xl": ["60px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
                 },
-              ],
-              "headline-lg-mobile": [
-                "32px",
-                { lineHeight: "40px", fontWeight: "600" },
-              ],
-              "label-md": [
-                "14px",
-                {
-                  lineHeight: "20px",
-                  letterSpacing: "0.05em",
-                  fontWeight: "600",
-                },
-              ],
-              "headline-md": [
-                "32px",
-                { lineHeight: "40px", fontWeight: "600" },
-              ],
-              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
-              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
-              "headline-xl": [
-                "60px",
-                {
-                  lineHeight: "72px",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "700",
-                },
-              ],
-              "headline-sm": [
-                "24px",
-                { lineHeight: "32px", fontWeight: "600" },
-              ],
             },
-          },
-        },
-      };
+        }
     </script>
     <style>
-      .material-symbols-outlined {
-        font-variation-settings:
-          "FILL" 0,
-          "wght" 400,
-          "GRAD" 0,
-          "opsz" 24;
-      }
-      .split-pane-hover:hover .bg-overlay {
-        background-color: rgba(0, 25, 69, 0.4);
-      }
-
-      /* ===== MOBILE-FIRST (default) ===== */
-      body {
-        min-height: 100dvh;
-        overflow-x: hidden;
-      }
-
-      /* ===== DESKTOP (768px+) ===== */
-      @media (min-width: 768px) {
-        body {
-          overflow: hidden;
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
         }
-      }
+
+        body {
+            background-color: #f7fafc;
+            color: #181c1e;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(rgba(0, 38, 98, 0.4), rgba(0, 38, 98, 0.6));
+        }
+
+        .logo-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo-hover:hover {
+            transform: scale(1.04);
+        }
+
+        .logo-hover img {
+            transition: transform 0.3s ease;
+        }
+
+        .logo-hover:hover img {
+            transform: scale(1.03);
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            #consulting-form-panel {
+                position: fixed;
+                top: 8rem;
+                right: 40px;
+                z-index: 40;
+                max-width: 22rem;
+                width: 22rem;
+                /* max-height: 60vh; */
+                /* width: min(22rem, calc((min(100vw, 1200px) - 160px - 24px) / 2));
+                right: max(80px, calc((100vw - min(100vw, 1200px)) / 2 + 80px)); */
+            }
+        }
+
+        /* #consulting-form-panel {
+            max-height: 60vh;
+            overflow: auto;
+        } */
+
+
+        #consulting-form-panel {
+    /* max-height: 60vh;
+    overflow-y: auto; */
+    transition: opacity 0.3s ease;
+}
+
+#consulting-form-panel:hover {
+    opacity: 1 !important;
+}
     </style>
-  </head>
-  <body class="bg-background text-on-background antialiased">
-    <!-- ============================================== -->
-    <!-- ===== MOBILE LAYOUT (FIXED RESPONSIVE) ======= -->
-    <!-- ============================================== -->
+</head>
 
-    <!-- Floating Logo -->
-    <header
-      class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md shadow-md z-50 md:hidden"
-    >
-      <div class="flex items-center h-20 px-5">
-        <img
-          alt="Blue Pine Logo"
-          class="h-14 w-auto object-contain"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"
-        />
-        <h2 class="ml-4 text-xl font-bold text-gray-800">
-  Blue Pine Consulting
-</h2>
-        
-        
-      </div>
+<body class="font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+    <!-- TopNavBar -->
+    <!-- Top Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-md">
+        <nav class="max-w-[1400px] mx-auto px-4 md:px-8">
 
-    
-    </header>
+            <div class="flex items-center justify-between h-20 md:h-24">
 
-    <!-- Mobile Main -->
-    <div
-      class="md:hidden flex flex-col min-h-screen w-full relative overflow-hidden pt-20"
-    >
-      <!-- Mobile Consulting Section -->
-      <section
-        class="relative min-h-[50vh] flex items-center justify-center overflow-hidden border-b border-white/10"
-      >
-        <!-- Background -->
-        <div class="absolute inset-0">
-          <div
-            class="absolute inset-0 w-full h-full bg-cover bg-center"
-            style="
-              background-image: url(&quot;public/consulting_img.png&quot;);
-              background-position: center center;
-            "
-          ></div>
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center shrink-0 logo-hover">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden w-20 h-20 md:w-24 md:h-24">
+                        <img alt="Blue Pine Logo" class="w-full h-full object-cover scale-110"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc" />
+                    </div>
+                </a>
 
-          <!-- Better overlay -->
-          <div
-            class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/35 to-black/60"
-          ></div>
-        </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-10">
 
-        <!-- Content -->
-        <div
-          class="relative z-20 flex flex-col items-center justify-center text-center px-6 pt-28 pb-16"
-        >
-          <span
-            class="text-white uppercase tracking-[0.28em] text-[12px] font-semibold"
-          >
-            Professional Services
-          </span>
+                    <ul class="flex items-center gap-8">
+                        <li>
+                            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                                href="#home">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                                href="#services">
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                                href="#about">
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+                                href="#contact">
+                                Contact
+                            </a>
+                        </li>
 
-          <h2
-            class="font-headline-lg-mobile text-[3rem] leading-[0.95] text-white mt-5 drop-shadow-xl"
-          >
-            Real Estate Consulting
-          </h2>
+                        
 
-          <p
-            class="font-body-md text-[1rem] leading-7 text-white/95 max-w-sm mx-auto mt-6 drop-shadow-md"
-          >
-            We Deal Only in the Top 3 Residential Projects.
-          </p>
+                        
+                        
 
-          <a
-            href="consulting.html"
-            class="inline-block mt-10 bg-primary text-white px-10 py-4 uppercase tracking-[0.2em] shadow-2xl rounded-[4px]"
-          >
-            Enter Site
-          </a>
-        </div>
-      </section>
+                        
+                    </ul>
+                </div>
 
-      <!-- Mobile Advisor Section -->
-      <section
-        class="relative min-h-[50vh] flex items-center justify-center overflow-hidden"
-      >
-        <!-- Background -->
-        <div class="absolute inset-0">
-          <div
-            class="absolute inset-0 w-full h-full bg-cover bg-center"
-            style="
-              background-image: url('public/legal_advisor.png');
-              background-position: center center;
-            "
-          ></div>
+                <!-- Mobile Hamburger -->
+                <button id="menuToggle" type="button" aria-label="Open main menu" aria-expanded="false"
+                    class="md:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-outline-variant">
+                    <span class="material-symbols-outlined text-primary">
+                        menu
+                    </span>
+                </button>
 
-          <!-- Better overlay -->
-          <div
-            class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/65"
-          ></div>
-        </div>
-
-        <!-- Content -->
-        <div
-          class="relative z-20 flex flex-col items-center justify-center text-center px-6 pt-20 pb-16"
-        >
-          <span
-            class="text-[#f4d08b] uppercase tracking-[0.28em] text-[12px] font-semibold"
-          >
-            Private Advisory
-          </span>
-
-          <h2
-            class="font-headline-lg-mobile text-[3rem] leading-[0.95] text-white mt-5 drop-shadow-xl"
-          >
-            Legal Advisor
-          </h2>
-
-          <p
-            class="font-body-md text-[1rem] leading-7 text-white/95 max-w-sm mx-auto mt-6 drop-shadow-md"
-          >
-            Bespoke residential management and tailored acquisition strategies
-            for the discerning individual.
-          </p>
-
-          <a
-            href="advisor.html"
-            class="inline-block mt-10 bg-primary text-white px-10 py-4 uppercase tracking-[0.2em] shadow-2xl rounded-[4px]"
-          >
-            Enter Site
-          </a>
-        </div>
-      </section>
-    </div>
-
-    <!-- ============================================== -->
-    <!-- ===== DESKTOP LAYOUT (visible on md+) ======== -->
-    <!-- ============================================== -->
-
-    <!-- Desktop: Logo header -->
-    <header
-      class="bg-white/95 backdrop-blur-md shadow-md hidden md:flex fixed top-0 left-0 w-full z-50 h-24 items-center px-8"
-    >
-      <!-- Logo Left -->
-      <div class="flex items-center">
-        <img
-          alt="Blue Pine Logo"
-          class="h-24 w-auto object-contain"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc"
-        />
-      </div>
-      
-          <h1 class="ml-10 text-2xl font-bold text-blue-800 text-center">
-    <span class="tracking-[0.3em]">BLUE</span>
-    <span class="tracking-[0.3em] ml-2">PINE</span>
-    <span class="tracking-[0.3em] ml-2">CONSULTING</span>
-</h1>
-    </header>
-
-    <!-- Desktop: Main split pane -->
-    <main class="hidden md:flex flex-row h-screen w-full relative">
-      <!-- Desktop: Consulting (Left) -->
-      <section
-        class="relative w-1/2 h-full group split-pane-hover cursor-pointer border-r border-outline-variant/20 overflow-hidden"
-      >
-        <!-- Background -->
-        <div
-          class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-          style="
-            background-image: url(&quot;public/consulting_img.png&quot;);
-            background-position: center center;
-          "
-        ></div>
-
-        <!-- Overlay -->
-        <div
-          class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/55 transition-colors duration-500 bg-overlay"
-        ></div>
-
-        <!-- Content -->
-        <div
-          class="relative h-full w-full flex flex-col items-center justify-center px-10 text-center"
-        >
-          <div class="space-y-7 max-w-2xl">
-            <span
-              class="text-white uppercase tracking-[0.25em] text-sm font-semibold drop-shadow-xl"
-            >
-              Professional Services
-            </span>
-
-            <h2
-              class="font-headline-xl text-[5rem] leading-[0.95] font-semibold text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]"
-            >
-              Real Estate Consulting
-            </h2>
-
-            <p
-              class="font-body-lg text-[1.2rem] leading-9 text-white/95 max-w-xl mx-auto drop-shadow-md"
-            >
-              We Deal Only in the Top 3 Residential Projects.
-            </p>
-
-            <div class="pt-10">
-              <a
-                href="consulting.html"
-                class="inline-block bg-primary text-white font-label-md text-label-md px-12 py-5 rounded-[4px] uppercase tracking-[0.18em] hover:bg-primary-container transition-all shadow-2xl"
-              >
-                Enter Site
-              </a>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Desktop: Advisor (Right) -->
-      <section
-        class="relative w-1/2 h-full group split-pane-hover cursor-pointer overflow-hidden"
-      >
-        <!-- Background -->
-        <div
-          class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-          style="
-            background-image: url(&quot;public/legal_advisor.png&quot;);
-            background-position: center center;
-          "
-        ></div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-6 border-t border-outline-variant/20">
 
-        <!-- Overlay -->
-        <div
-          class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60 transition-colors duration-500 bg-overlay"
-        ></div>
+                <div class="flex flex-col gap-4 pt-5">
 
-        <!-- Content -->
-        <div
-          class="relative h-full w-full flex flex-col items-center justify-center px-10 text-center"
-        >
-          <div class="space-y-7 max-w-2xl">
-            <span
-              class="text-white uppercase tracking-[0.25em] text-sm font-semibold drop-shadow-xl"
-            >
-              Legal Advisory
-            </span>
+                    <a href="index.html" class="text-on-surface py-2 font-label-md">
+                        Home
+                    </a>
+                    <a href="#contact" class="text-on-surface py-2 font-label-md">
+                        Contact
+                    </a>
+                   
 
-            <h2
-              class="font-headline-xl text-[5rem] leading-[0.95] font-semibold text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.55)]"
-            >
-              Legal Advisor
-            </h2>
+                    <a href="#services" class="text-on-surface py-2 font-label-md">
+                        Services
+                    </a>
 
-            <p
-              class="font-body-lg text-[1.2rem] leading-9 text-white/95 max-w-xl mx-auto drop-shadow-md"
-            >
-              Bespoke residential management and tailored acquisition strategies
-              for the discerning individual.
-            </p>
+                    
+                     <a href="#about" class="text-on-surface py-2 font-label-md">
+                        About
+                    </a>
 
-            <div class="pt-10">
-              <a
-                href="advisor.html"
-                class="inline-block bg-primary text-white font-label-md text-label-md px-12 py-5 rounded-[4px] uppercase tracking-[0.18em] hover:bg-primary-container transition-all shadow-2xl"
-              >
-                Enter Site
-              </a>
+                    <div class="flex flex-col gap-3 pt-4">
+
+                        <a href="index.html"
+                            class="bg-primary text-white text-center py-3 rounded-md font-label-md">
+                            Consulting
+                        </a>
+
+                        <a href="advisor.html"
+                            class="border border-primary text-primary text-center py-3 rounded-md font-label-md">
+                            Legal Advisor
+                        </a>
+
+                    </div>
+
+                </div>
+
             </div>
-          </div>
-        </div>
-      </section>
+
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center pt-20">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover"
+                    data-alt="A grand, ultra-modern glass skyscraper reflecting a clear blue sky during the golden hour. The building's architectural sharp lines and steel framework symbolize stability and high-end real estate. The atmosphere is professional and prestigious, bathed in soft, warm sunlight that highlights the texture of the facade. The overall aesthetic is corporate, minimalist, and expensive, reflecting the elite nature of Blue Pine Consulting."
+                    src="public/consulting_img.png" />
+                    <div class="absolute inset-0 hero-overlay"></div>
+            </div>
+            
+            <div
+                class="relative z-10 w-full max-w-[1280px] px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-section-padding-sm min-h-screen">
+
+                <!-- LEFT CONTENT -->
+                <div class="text-white space-y-8">
+
+                    <h1 class="max-w-[12ch] text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02]
+                        [text-shadow:0_4px_18px_rgba(0,0,0,0.45)]
+                        [-webkit-text-stroke:1px_rgba(10,61,122,0.45)]">
+
+                        We Deal Only in the Top 3 Residential Projects
+
+                    </h1>
+
+                    <p class="max-w-xl text-white/85 text-base md:text-lg leading-8 font-light">
+                        Premium real estate advisory focused on high-value residential investments,
+                        curated exclusively for discerning buyers and strategic investors.
+                    </p>
+
+                </div>
+
+                <!-- RIGHT FORM -->
+                <div class="w-full flex justify-center lg:justify-end items-center">
+
+                    <div
+                        id="consulting-form-panel"
+                        class="bg-white/65 hover:bg-white/95 backdrop-blur-sm transition-all duration-500
+                            p-5 sm:p-6 rounded-2xl border border-white/30 shadow-2xl
+                            max-w-[17rem] w-full">
+
+                        <h2 class="font-headline-sm text-2xl text-primary mb-5 leading-tight">
+                            Secure Your Strategy
+                        </h2>
+
+                        <form id="consultingForm" class="space-y-4 overflow-visible">
+
+                            <!-- Name -->
+                            
+                            <div class="space-y-1">
+                      <input
+    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none"
+    placeholder="Enter Your Name"
+    type="text"
+    name="name"
+    required />
+
+<!-- Contact -->
+<input
+    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none"
+    placeholder="Enter Contact Number"
+    type="tel"
+    name="contact"
+    required />
+
+<!-- Email -->
+<input
+    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none"
+    placeholder="Enter Email Address"
+    type="email"
+    name="email"
+    required />
+
+<!-- Requirement -->
+<select
+    class="w-full px-4 py-3 text-sm bg-white/90 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none appearance-none"
+    name="requirement"
+    required>
+    <option value="">Select Requirement</option>
+    <option>2BHK</option>
+    <option>3BHK</option>
+    <option>4BHK</option>
+</select>
+                            </div>
+
+                            <!-- Button -->
+                            <button
+                                class="w-full bg-primary text-on-primary py-3 text-sm font-semibold rounded-lg
+                                    uppercase tracking-[0.18em] hover:bg-primary-container
+                                    hover:scale-[1.02] transition-all duration-300 mt-3 shadow-lg"
+                                type="submit"
+                                id="submitBtn">
+
+                                Submit Inquiry
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+         <!-- Services Section -->
+        <section class="py-section-padding-lg bg-white" id="services">
+            <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="text-center mb-12 md:mb-16">
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Our Services</h2>
+                    <div class="mx-auto h-1 w-20 rounded-full bg-tertiary-fixed-dim"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div
+                        class="rounded-[32px] border border-outline-variant bg-surface p-10 shadow-sm transition-all hover:shadow-xl hover:-translate-y-1">
+                        <div class="mb-6 overflow-hidden rounded-xl">
+                            <img
+                                src="public/desnac.jpeg"
+                                alt="Desnac"
+                                class="w-full h-48 object-cover"
+                            />
+                        </div>
+                        <h3 class="font-headline-sm text-headline-sm text-primary mb-4">Desnac</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            A premium residential address crafted for modern living with elevated design, refined amenities,
+                            and a strong long-term value proposition.
+                        </p>
+                        <a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary hover:text-primary/80 transition-colors"
+                            href="#">
+                            VIEW SERVICE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                    <div
+                        class="rounded-[32px] border border-outline-variant bg-surface p-10 shadow-sm transition-all hover:shadow-xl hover:-translate-y-1">
+                        <div class="mb-6 overflow-hidden rounded-xl">
+                            <img
+                                src="public/max.png"
+                                alt="Max Sector 105"
+                                class="w-full h-48 object-cover"
+                            />
+                        </div>
+                        <h3 class="font-headline-sm text-headline-sm text-primary mb-4">Max Sector 105</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            A landmark residential development featuring ultra-modern architecture and premium amenities
+                            designed for discerning investors seeking luxury and value appreciation.
+                        </p>
+                        <a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary hover:text-primary/80 transition-colors"
+                            href="#">
+                            VIEW SERVICE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                    <div
+                        class="rounded-[32px] border border-outline-variant bg-surface p-10 shadow-sm transition-all hover:shadow-xl hover:-translate-y-1">
+                        <div class="mb-6 overflow-hidden rounded-xl">
+                            <img
+                                src="public/ats.jpeg"
+                                alt="ATS Lifestyle"
+                                class="w-full h-48 object-cover"
+                            />
+                        </div>
+                        <h3 class="font-headline-sm text-headline-sm text-primary mb-4">ATS Lifestyle</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            An upscale lifestyle destination combining thoughtful planning, elevated interiors, and a
+                            curated environment for high-value residential living.
+                        </p>
+                        <a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary hover:text-primary/80 transition-colors"
+                            href="#">
+                            VIEW SERVICE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                    <div
+                        class="rounded-[32px] border border-outline-variant bg-surface p-10 shadow-sm transition-all hover:shadow-xl hover:-translate-y-1">
+                        <div class="text-primary mb-6 transition-transform duration-300 group-hover:scale-110">
+                            <span class="material-symbols-outlined text-4xl">handshake</span>
+                        </div>
+                        <h3 class="font-headline-sm text-headline-sm text-primary mb-4">Coming Soon</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            More premium services are being added — stay tuned for the next phase of our consulting
+                            offerings.
+                        </p>
+                        <a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary hover:text-primary/80 transition-colors"
+                            href="#">
+                            VIEW SERVICE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section class="py-section-padding-lg bg-surface" id="about">
+            <div
+                class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div class="space-y-8">
+                    <span
+                        class="text-on-tertiary-container font-label-md text-label-md tracking-widest uppercase block">Established
+                        Expertise</span>
+                    <h2 class="font-headline-lg text-headline-lg text-primary">About Us</h2>
+                    <div class="space-y-6 text-on-surface-variant font-body-lg">
+                        <p>
+                            Welcome to Blue Pine — where luxury meets trust, innovation, and modern living. We specialize in premium residential real estate projects designed for individuals and families who seek elegance, comfort, and a refined lifestyle.
+                        </p>
+                        <p>
+                            At Blue Pine, we believe a home is more than just a property — it is a reflection of your aspirations and success. Our focus is on delivering luxurious residential spaces with world-class amenities, contemporary architecture, prime locations, and thoughtfully planned communities that redefine urban living.
+                        </p>
+                        <p>
+                            With a commitment to quality, transparency, and customer satisfaction, we guide our clients through every step of their real estate journey. Whether you are looking for your dream home or a valuable investment opportunity, Blue Pine offers projects that combine sophistication, convenience, and long-term value.
+                        </p>
+                        <p>
+                            Our mission is to create exceptional living experiences through premium developments that blend luxury, comfort, and sustainability. Backed by professional expertise and a customer-first approach, we strive to build lasting relationships and deliver excellence in every project we represent.
+                        </p>
+                        <p>
+                            At Blue Pine, we do not just sell homes — we help you discover a lifestyle.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div
+                        class="aspect-[4/5] bg-surface-container-high rounded-3xl overflow-hidden shadow-lg border border-outline-variant">
+                        <img class="w-full h-full object-cover",
+                            data-alt="A group of diverse, professional consultants in tailored navy and charcoal suits engaged in a serious discussion around a sleek, polished mahogany boardroom table. The background is a blurred cityscape visible through floor-to-ceiling windows. The lighting is cold, clean, and bright, emphasizing a corporate environment of intelligence and focus. The shot is an architectural, editorial composition that feels authoritative and trustworthy."
+                            src="public/estae.png" />
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+        <!-- Contact Section -->
+        <section class="py-section-padding-lg bg-surface" id="contact">
+            <div class="max-w-[1200px] mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-24">
+                <div class="space-y-12">
+                    <div>
+                        <h2 class="font-headline-lg text-headline-lg text-primary mb-6">Connect with all advisors</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant">Our advisors are available for
+                            confidential consultations across our global offices and private digital briefings.</p>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary text-on-primary rounded">
+                                <span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+                            </div>
+                            <div>
+                                <h4 class="font-label-md text-label-md text-primary uppercase mb-1">Address</h4>
+                                <p class="font-body-md text-body-md text-on-surface-variant">SX 69-70, 6th
+                                    Floor<br />NPX Urbtech, Sector 153<br />Noida 201310</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary text-on-primary rounded">
+                                <span class="material-symbols-outlined" data-icon="call">call</span>
+                            </div>
+                            <div>
+                                <h4 class="font-label-md text-label-md text-primary uppercase mb-1">Direct Line</h4>
+                                <p class="font-body-md text-body-md text-on-surface-variant">+91 8796475439</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary text-on-primary rounded">
+                                <span class="material-symbols-outlined" data-icon="mail">mail</span>
+                            </div>
+                            <div>
+                                <h4 class="font-label-md text-label-md text-primary uppercase mb-1">Mail</h4>
+                                <p class="font-body-md text-body-md text-on-surface-variant">contact@bluepine.co.in</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="h-[400px] bg-surface-container-high rounded-xl overflow-hidden border border-outline-variant relative shadow-lg">
+                    <iframe title="Blue Pine office location map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5684089236324!2d77.35879872346897!3d28.592089874200008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sNPX%20Urbtech%2C%20Sector%20153%2C%20Noida!2s28.5920894%2C77.3587987!5e0!3m2!1sen!2sin!4v1716312000000!5m2!1sen!2sin"
+                        width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
+                    <div
+                        class="absolute top-4 left-4 bg-primary text-on-primary px-4 py-2 rounded-lg shadow-xl flex items-center gap-2 pointer-events-none">
+                        <span class="material-symbols-outlined text-lg" data-icon="location_on"
+                            style="font-variation-settings: 'FILL' 1;">location_on</span>
+                        <div>
+                            <p class="font-label-md text-label-md font-semibold">Blue Pine HQ</p>
+                            <p class="font-body-sm text-body-sm text-on-primary/80 text-xs">Noida, India</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
     </main>
-
-    <!-- Desktop: Footer overlay -->
-    <footer
-      class="hidden md:flex fixed bottom-0 left-0 w-full z-50 pb-10 flex-col items-center gap-6 pointer-events-none"
-    >
-      <div class="flex gap-12 pointer-events-auto">
-        <a
-          class="font-label-md text-label-md text-on-primary/60 hover:text-on-primary transition-colors"
-          href="#"
-          >Privacy Policy</a
-        >
-        <a
-          class="font-label-md text-label-md text-on-primary/60 hover:text-on-primary transition-colors"
-          href="#"
-          >Legal Terms</a
-        >
-        <a
-          class="font-label-md text-label-md text-on-primary/60 hover:text-on-primary transition-colors"
-          href="#"
-          >Contact</a
-        >
-      </div>
-      <p class="font-label-sm text-label-sm text-on-primary/40">
-        © 2024 Blue Pine Real Estate. All rights reserved.
-      </p>
+    <!-- Footer -->
+    <footer class="bg-on-background dark:bg-surface-container-lowest border-t border-outline/10">
+        <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-padding-sm max-w-[1200px] mx-auto">
+            <div class="space-y-6">
+                <a href="index.html" class="inline-block hover:opacity-80 transition-opacity">
+                    <img alt="Blue Pine Logo" class="h-16 w-auto object-contain"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOAtFT06ZoCILj26aUS2Lku5P9UyJEoXlqoVWb_YhDazfloDAl6dJGiGR4jsR--cg1nLw22by0BPbrA1OKh3fqli1MNeTsB85yl2c3wyrxIOwzLTSc59plaGYrqPftwsRrLnmmI384IQS9oZ3Rq5wtqPeyNJemxJaIPk0_itThuiA0MWDSzt5WDL5oIOOSNpPZiNZRK6dgHVUrFNT1gm1KVhLuKdM59FVcXYUq2eAmXNnrMhDX_ZpVsnrV50MsmxVZlrGQazqDigc" />
+                </a>
+                <p class="text-surface-variant opacity-80 font-body-md">
+                    Architecting luxury real estate experiences since 2008.
+                </p>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-surface font-label-md text-label-md uppercase tracking-widest">Navigation</h5>
+                <ul class="space-y-2">
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                            href="#">Home</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                            href="#about">About</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                            href="#services">Our Services</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                            href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-surface font-label-md text-label-md uppercase tracking-widest">Advisory</h5>
+                <ul class="space-y-2">
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                            href="#">Consulting</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                            href="#">Advisor</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                            href="#">Market Reports</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-surface font-label-md text-label-md uppercase tracking-widest">Legal</h5>
+                <ul class="space-y-2">
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                            href="#">Privacy Policy</a></li>
+                    <li><a class="text-surface-variant opacity-80 hover:opacity-100 hover:text-tertiary-fixed transition-colors font-body-md"
+                            href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="border-t border-surface-variant/10 max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-8">
+            <p class="font-body-md text-body-md text-surface-variant/60 text-center">
+                © 2024 Blue Pine Real Estate. All rights reserved.
+            </p>
+        </div>
     </footer>
-  </body>
+    <script>
+        const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxhRiSqMppLHlB-sUkT0nHw4lbUuIHrDjAUFpX4XvlZd82XbW7-uipcO7w7D-aPJGxHLw/exec';
+
+        document.getElementById('consultingForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                contact: formData.get('contact'),
+                email: formData.get('email'),
+                requirement: formData.get('requirement'),
+                source: 'Consulting Page',
+                timestamp: new Date().toLocaleString()
+            };
+
+            try {
+                const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    document.getElementById('consultingForm').reset();
+                    const successMsg = document.createElement('div');
+                    successMsg.className = 'success-message';
+                    successMsg.textContent = 'Thank you! Your inquiry has been submitted successfully.';
+                    successMsg.style.display = 'block';
+                    document.getElementById('consultingForm').parentElement.insertBefore(successMsg, document.getElementById('consultingForm'));
+
+                    setTimeout(() => {
+                        successMsg.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'error-message';
+                errorMsg.textContent = 'Error submitting form. Please try again.';
+                errorMsg.style.display = 'block';
+                document.getElementById('consultingForm').parentElement.insertBefore(errorMsg, document.getElementById('consultingForm'));
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+                const icon = menuToggle.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
+                }
+                menuToggle.setAttribute('aria-expanded', String(!mobileMenu.classList.contains('hidden')));
+            });
+        }
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= 768 && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                const icon = menuToggle?.querySelector('.material-symbols-outlined');
+                if (icon) icon.textContent = 'menu';
+                menuToggle?.setAttribute('aria-expanded', 'false');
+            }
+       
+        })
+        
+        
+        
+        const formPanel = document.getElementById('consulting-form-panel');
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+
+    // Opacity decreases as user scrolls down
+    let opacity = 1 - (scrollTop / 800);
+
+    // Don't let it become completely invisible
+    opacity = Math.max(0.7, opacity);
+
+    formPanel.style.opacity = opacity;
+});
+
+// Full opacity on hover
+formPanel.addEventListener('mouseenter', () => {
+    formPanel.style.opacity = 1;
+});
+
+formPanel.addEventListener('mouseleave', () => {
+    let opacity = 1 - (window.scrollY / 800);
+    opacity = Math.max(0.7, opacity);
+    formPanel.style.opacity = opacity;
+});;
+    </script>
+</body>
+
 </html>
